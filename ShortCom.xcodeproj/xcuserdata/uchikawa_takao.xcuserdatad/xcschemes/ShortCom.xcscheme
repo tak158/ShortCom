@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "0DA8D2B61744D4D400EAAEA5"
+=======
+               BlueprintIdentifier = "0DBE86861744D21F0033CDDF"
+>>>>>>> a287a770fabb550a3db157f0a4118b0e4f4ddc02
                BuildableName = "ShortCom.app"
                BlueprintName = "ShortCom"
                ReferencedContainer = "container:ShortCom.xcodeproj">
@@ -32,7 +36,11 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "0DA8D2B61744D4D400EAAEA5"
+=======
+            BlueprintIdentifier = "0DBE86861744D21F0033CDDF"
+>>>>>>> a287a770fabb550a3db157f0a4118b0e4f4ddc02
             BuildableName = "ShortCom.app"
             BlueprintName = "ShortCom"
             ReferencedContainer = "container:ShortCom.xcodeproj">
@@ -51,7 +59,11 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "0DA8D2B61744D4D400EAAEA5"
+=======
+            BlueprintIdentifier = "0DBE86861744D21F0033CDDF"
+>>>>>>> a287a770fabb550a3db157f0a4118b0e4f4ddc02
             BuildableName = "ShortCom.app"
             BlueprintName = "ShortCom"
             ReferencedContainer = "container:ShortCom.xcodeproj">
@@ -69,7 +81,11 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "0DA8D2B61744D4D400EAAEA5"
+=======
+            BlueprintIdentifier = "0DBE86861744D21F0033CDDF"
+>>>>>>> a287a770fabb550a3db157f0a4118b0e4f4ddc02
             BuildableName = "ShortCom.app"
             BlueprintName = "ShortCom"
             ReferencedContainer = "container:ShortCom.xcodeproj">
