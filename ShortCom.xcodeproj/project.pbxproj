@@ -18,6 +18,7 @@
 		0DCA76A21744D67800FE6D6D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DCA76A11744D67800FE6D6D /* Default-568h@2x.png */; };
 		0DCA76A51744D67800FE6D6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCA76A31744D67800FE6D6D /* MainStoryboard.storyboard */; };
 		0DCA76A81744D67800FE6D6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA76A71744D67800FE6D6D /* ViewController.m */; };
+		0DCA76B01744D91700FE6D6D /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA76AF1744D91700FE6D6D /* Thread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		0DCA76A41744D67800FE6D6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0DCA76A61744D67800FE6D6D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0DCA76A71744D67800FE6D6D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0DCA76AE1744D91700FE6D6D /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		0DCA76AF1744D91700FE6D6D /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				0DCA76A61744D67800FE6D6D /* ViewController.h */,
 				0DCA76A71744D67800FE6D6D /* ViewController.m */,
 				0DCA76921744D67800FE6D6D /* Supporting Files */,
+				0DCA76AE1744D91700FE6D6D /* Thread.h */,
+				0DCA76AF1744D91700FE6D6D /* Thread.m */,
 			);
 			path = ShortCom;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				0DCA76981744D67800FE6D6D /* main.m in Sources */,
 				0DCA769C1744D67800FE6D6D /* AppDelegate.m in Sources */,
 				0DCA76A81744D67800FE6D6D /* ViewController.m in Sources */,
+				0DCA76B01744D91700FE6D6D /* Thread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
