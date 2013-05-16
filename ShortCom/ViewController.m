@@ -10,6 +10,7 @@
 #import "Thread.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray* threads;
 @end
 
@@ -20,6 +21,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   [self setupThread];
+  self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)setupThread
@@ -45,6 +47,19 @@
   Thread* thread = _threads[indexPath.row];
   cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.name];
   return cell;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+  [super setEditing:editing animated:animated];
+  [_tableView setEditing:editing animated:animated];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [_threads removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+  }
 }
 
 @end

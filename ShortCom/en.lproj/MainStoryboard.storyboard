@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXb-m0-OBs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Thread一覧-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4MT-Vu-ceW">
@@ -40,15 +40,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="6P7-Rf-Mqg"/>
+                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="JsU-oP-EZq"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="PQf-Ri-Q2j"/>
-                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Pzq-eh-7j8"/>
+                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="RiG-H9-NAb"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="kBn-JH-6HW"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Thread一覧" id="Z9M-mb-pcp"/>
+                    <connections>
+                        <outlet property="tableView" destination="4MT-Vu-ceW" id="vqw-nz-8uV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="123" y="-45"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="45U-R9-HtF">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="vXb-m0-OBs" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JI2-Kw-b4R">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="kSu-rc-UZp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nmb-Za-glc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-229" y="-45"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
