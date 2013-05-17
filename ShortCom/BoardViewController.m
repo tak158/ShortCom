@@ -44,8 +44,8 @@
 
 - (IBAction)pushedButton:(id)sender
 {
-  [sender setTitle:@"you" forState:UIControlStateNormal];
-  _inputText.text = @"you";
+  [_comments addObject:[Comment commentWithNote:_inputText.text]];
+  [_tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
