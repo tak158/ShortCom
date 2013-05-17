@@ -65,14 +65,25 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   ThreadDetailViewController* detailViewController = [segue destinationViewController];
-  _updateIndexPath = _tableView.indexPathForSelectedRow;
-  [self.tableView deselectRowAtIndexPath:_tableView.indexPathForSelectedRow animated:YES];
-  detailViewController.thread = _threads[_updateIndexPath.row];
+  if ([[segue identifier] isEqualToString:@"new"]) {
+    detailViewController.thread = [Thread threadWithName:@""];
+    _updateIndexPath = [NSIndexPath indexPathForRow:[_threads count] inSection:0];
+  }else{
+    _updateIndexPath = _tableView.indexPathForSelectedRow;
+    [self.tableView deselectRowAtIndexPath:_tableView.indexPathForSelectedRow animated:YES];
+    detailViewController.thread = _threads[_updateIndexPath.row];
+  }
 }
 
 - (IBAction)threadUpdated:(UIStoryboardSegue *)segue
 {
-  [_tableView reloadRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+  if (_updateIndexPath.row == [_threads count]) {
+    ThreadDetailViewController* detailViewController = [segue sourceViewController];
+    [_threads addObject:detailViewController.thread];
+    [_tableView insertRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+  }else{
+    [_tableView reloadRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+  }
 }
 
 @end
