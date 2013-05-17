@@ -59,6 +59,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [_threads[indexPath.row] destroy];
     [_threads removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
   }
@@ -68,7 +69,7 @@
 {
   ThreadDetailViewController* detailViewController = [segue destinationViewController];
   if ([[segue identifier] isEqualToString:@"new"]) {
-    detailViewController.thread = [Thread threadWithName:@""];
+    detailViewController.thread = [Thread threadWithName:@"" threadId:0];
     _updateIndexPath = [NSIndexPath indexPathForRow:[_threads count] inSection:0];
   }else if([[segue identifier] isEqualToString:@"edit"]){
     _updateIndexPath = _tableView.indexPathForSelectedRow;

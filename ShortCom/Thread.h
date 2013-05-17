@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Thread : NSObject
-@property (nonatomic) int id;
+@property (strong, nonatomic) NSNumber* threadId;
 @property (strong, nonatomic) NSString* name;
 @property (nonatomic) NSNumber* commentCount;
 
-+ (Thread *)threadWithName:(NSString *)name;
-+ (Thread *)threadWithName:(NSString *)name commentCount:(NSNumber *)commentCount;
++ (Thread *)threadWithName:(NSString *)name threadId:(NSNumber *)threadId;
++ (Thread *)threadWithName:(NSString *)name threadId:(NSNumber *)threadId commentCount:(NSNumber *)commentCount;
 
 + (NSArray *)all;
 + (NSData *)getRequestToURL:(NSString *)url;
