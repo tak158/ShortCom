@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Comment : NSObject
-@property (nonatomic) NSInteger id;
+@property (nonatomic) NSNumber* commentId;
 @property (strong, nonatomic) NSString* note;
 
 + (Comment *)commentWithNote:(NSString *)note;
