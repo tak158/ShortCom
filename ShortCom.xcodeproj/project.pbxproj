@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D9DB5471745ABA200998DDC /* ThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */; };
 		0DCA768C1744D67800FE6D6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCA768B1744D67800FE6D6D /* UIKit.framework */; };
 		0DCA768E1744D67800FE6D6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCA768D1744D67800FE6D6D /* Foundation.framework */; };
 		0DCA76901744D67800FE6D6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCA768F1744D67800FE6D6D /* CoreGraphics.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadDetailViewController.h; sourceTree = "<group>"; };
+		0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadDetailViewController.m; sourceTree = "<group>"; };
 		0DCA76881744D67800FE6D6D /* ShortCom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortCom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCA768B1744D67800FE6D6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0DCA768D1744D67800FE6D6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +97,8 @@
 				0DCA76921744D67800FE6D6D /* Supporting Files */,
 				0DCA76AE1744D91700FE6D6D /* Thread.h */,
 				0DCA76AF1744D91700FE6D6D /* Thread.m */,
+				0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */,
+				0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */,
 			);
 			path = ShortCom;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				0DCA769C1744D67800FE6D6D /* AppDelegate.m in Sources */,
 				0DCA76A81744D67800FE6D6D /* ViewController.m in Sources */,
 				0DCA76B01744D91700FE6D6D /* Thread.m in Sources */,
+				0D9DB5471745ABA200998DDC /* ThreadDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +310,7 @@
 				0DCA76AD1744D67800FE6D6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
