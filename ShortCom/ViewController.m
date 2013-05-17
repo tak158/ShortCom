@@ -87,6 +87,7 @@
   }else{
     [_tableView reloadRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
   }
+  [_threads[_updateIndexPath.row] save];
 }
 
 @end

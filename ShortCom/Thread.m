@@ -55,7 +55,11 @@
 
 - (void)save
 {
-
+  if (_threadId) {
+    [self requestThreadToURL:[NSString stringWithFormat:@"%@/boards/%@.json", SERVER_URL, _threadId] method:@"PUT"];
+  }else{
+    [self requestThreadToURL:[NSString stringWithFormat:@"%@/boards.json", SERVER_URL] method:@"POST"];
+  }
 }
 
 - (void)destroy
@@ -82,7 +86,7 @@
 - (void)requestThreadToURL:(NSString *)url method:(NSString *)method
 {
   NSError* error = nil;
-  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"board": @{@"name": _name, @"comment_count" : _commentCount}} options:0 error:&error];
+  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"board": @{@"name": _name, @"comment_count" : @"0"}} options:0 error:&error];
   
   if (!requestData) {
     NSLog(@"NSJSONNSerialization error:%@", error);
