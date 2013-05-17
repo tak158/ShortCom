@@ -27,6 +27,7 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
+  [self setupComment];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,14 +51,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   NSLog(@"テーブル数の設定");
-  return 3;
+  return [_comments count];
+}
+
+- (void)setupComment
+{
+  _comments = [[NSMutableArray alloc] init];
+  [_comments addObject:[Comment commentWithNote:@"サンキューガッツ"]];
+  [_comments addObject:[Comment commentWithNote:@"知ってた"]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
+  Comment* comment = _comments[indexPath.row];
   
-  cell.textLabel.text = @"gaa";
+  cell.textLabel.text = [NSString stringWithFormat:@"%@", comment.note];
+  NSLog(@"%@", cell.textLabel.text);
   return cell;
 }
 
