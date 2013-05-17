@@ -95,8 +95,8 @@
 				0DCA76A61744D67800FE6D6D /* ViewController.h */,
 				0DCA76A71744D67800FE6D6D /* ViewController.m */,
 				0DCA76921744D67800FE6D6D /* Supporting Files */,
-				0DCA76AE1744D91700FE6D6D /* Thread.h */,
 				0DCA76AF1744D91700FE6D6D /* Thread.m */,
+				0DCA76AE1744D91700FE6D6D /* Thread.h */,
 				0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */,
 				0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */,
 			);

@@ -70,7 +70,7 @@
   detailViewController.thread = _threads[_updateIndexPath.row];
 }
 
-- (IBAction)todoUpdated:(UIStoryboardSegue *)segue
+- (IBAction)threadUpdated:(UIStoryboardSegue *)segue
 {
   [_tableView reloadRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
