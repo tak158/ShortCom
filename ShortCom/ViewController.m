@@ -68,7 +68,7 @@
   if ([[segue identifier] isEqualToString:@"new"]) {
     detailViewController.thread = [Thread threadWithName:@""];
     _updateIndexPath = [NSIndexPath indexPathForRow:[_threads count] inSection:0];
-  }else{
+  }else if([[segue identifier] isEqualToString:@"edit"]){
     _updateIndexPath = _tableView.indexPathForSelectedRow;
     [self.tableView deselectRowAtIndexPath:_tableView.indexPathForSelectedRow animated:YES];
     detailViewController.thread = _threads[_updateIndexPath.row];
