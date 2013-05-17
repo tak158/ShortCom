@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BoardViewController : UIViewController <UITextFieldDelegate>
+@interface BoardViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *inputText;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *inputButton;
+- (IBAction)pushedButton:(id)sender;
 @property (strong, nonatomic) NSMutableArray* table;
 @end
