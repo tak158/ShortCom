@@ -8,10 +8,10 @@
 
 #import "ViewController.h"
 #import "Thread.h"
+#import "ThreadDetailViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray* threads;
 @end
 
 @implementation ViewController
@@ -60,6 +60,19 @@
     [_threads removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
   }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  ThreadDetailViewController* detailViewController = [segue destinationViewController];
+  _updateIndexPath = _tableView.indexPathForSelectedRow;
+  [self.tableView deselectRowAtIndexPath:_tableView.indexPathForSelectedRow animated:YES];
+  detailViewController.thread = _threads[_updateIndexPath.row];
+}
+
+- (IBAction)todoUpdated:(UIStoryboardSegue *)segue
+{
+  [_tableView reloadRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

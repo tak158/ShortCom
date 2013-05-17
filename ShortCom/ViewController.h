@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ThreadDetailViewController.h"
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
+@property (strong, nonatomic) NSIndexPath* updateIndexPath;
+@property (strong, nonatomic) NSMutableArray* threads;
 @end

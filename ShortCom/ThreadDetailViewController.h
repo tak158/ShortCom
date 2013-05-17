@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Thread.h"
 
 @interface ThreadDetailViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *nameText;
+@property (strong, nonatomic) Thread* thread;
 @end
