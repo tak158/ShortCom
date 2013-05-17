@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface Comment : NSObject
-@property (nonatomic) NSNumber* commentId;
+@property (strong, nonatomic) NSNumber* commentId;
+@property (strong, nonatomic) NSNumber* userId;
+@property (strong, nonatomic) NSNumber* threadId;
 @property (strong, nonatomic) NSString* note;
 
 + (Comment *)commentWithNote:(NSString *)note;
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId commentId:(NSNumber *)commentId;
+
++ (NSArray *)all;
++ (NSArray *)getComments:(NSNumber *)threadId;
++ (NSData *)getRequestToURL:(NSString *)url;
+- (void)save;
+- (void)destroy;
 @end
