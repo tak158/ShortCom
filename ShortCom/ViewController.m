@@ -18,8 +18,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+  NSLog(@"data is : %@", [Thread all]);
   [self setupThread];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
@@ -27,7 +28,8 @@
 - (void)setupThread
 {
   _threads = [[NSMutableArray alloc] init];
-  [_threads addObject:[Thread threadWithName:@"やきうの実況"]];
+  _threads = [[Thread all] mutableCopy];
+  NSLog(@"%@", _threads);
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,7 +47,7 @@
 {
   UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ThreadCell" forIndexPath:indexPath];
   Thread* thread = _threads[indexPath.row];
-  cell.textLabel.text = [NSString stringWithFormat:@"%@", thread.name];
+  cell.textLabel.text = [NSString stringWithFormat:@"%@:%@", thread.name, thread.commentCount];
   return cell;
 }
 
