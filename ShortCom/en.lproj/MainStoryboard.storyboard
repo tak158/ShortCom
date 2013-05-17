@@ -31,7 +31,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="5qD-qd-IP7" kind="push" identifier="edit" id="gfx-1K-KaS"/>
+                                            <segue destination="lYb-Oj-Cus" kind="push" identifier="board" id="V9f-kU-RBX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -107,7 +107,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79h-E9-nB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="N9N-ec-XWt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="479" y="-45"/>
+            <point key="canvasLocation" x="128" y="-799"/>
+        </scene>
+        <!--Board View Controller - 掲示板-->
+        <scene sceneID="jPv-ij-P1h">
+            <objects>
+                <viewController id="lYb-Oj-Cus" customClass="BoardViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cw5-pn-r2y">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-P1-oTn">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="314" id="mSm-jg-afU"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="BoardCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardCell" textLabel="1G7-Ya-OHD" style="IBUITableViewCellStyleDefault" id="4xz-rE-ZDa">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1G7-Ya-OHD">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lYb-Oj-Cus" id="I1L-U8-MTx"/>
+                                    <outlet property="delegate" destination="lYb-Oj-Cus" id="vR0-3S-Dgr"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hew-xm-hjE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="u0U-IC-NeP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lYb-Oj-Cus" id="N5N-N8-S5v"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1E-4d-BHy">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="書き込み">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushedButton:" destination="lYb-Oj-Cus" eventType="touchUpInside" id="PHL-Qu-lhA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1yl-P1-oTn" firstAttribute="trailing" secondItem="Cw5-pn-r2y" secondAttribute="trailing" type="default" id="Kv5-Wj-ufR"/>
+                            <constraint firstItem="1yl-P1-oTn" firstAttribute="bottom" secondItem="Cw5-pn-r2y" secondAttribute="bottom" type="default" id="NiU-aY-DKD"/>
+                            <constraint firstItem="1yl-P1-oTn" firstAttribute="leading" secondItem="Cw5-pn-r2y" secondAttribute="leading" type="default" id="Vv8-PC-Brk"/>
+                            <constraint firstItem="D1E-4d-BHy" firstAttribute="centerX" secondItem="hew-xm-hjE" secondAttribute="centerX" type="default" id="cK3-KA-i3p"/>
+                            <constraint firstItem="D1E-4d-BHy" firstAttribute="top" secondItem="hew-xm-hjE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gDC-Gn-Wcx"/>
+                            <constraint firstItem="hew-xm-hjE" firstAttribute="leading" secondItem="Cw5-pn-r2y" secondAttribute="leading" constant="32" id="hlW-vx-Edl"/>
+                            <constraint firstItem="hew-xm-hjE" firstAttribute="top" secondItem="Cw5-pn-r2y" secondAttribute="top" constant="20" symbolic="YES" type="default" id="w2Q-cW-t7L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="掲示板" id="OIl-AB-gJS"/>
+                    <connections>
+                        <outlet property="inputButton" destination="D1E-4d-BHy" id="7Pm-TD-eLA"/>
+                        <outlet property="inputText" destination="hew-xm-hjE" id="crd-PL-POW"/>
+                        <outlet property="tableView" destination="1yl-P1-oTn" id="Xmx-xz-Yv2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sme-Vf-5v4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="45U-R9-HtF">
@@ -125,12 +208,39 @@
             <point key="canvasLocation" x="-229" y="-45"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pushedButton:"/>
+                <relationship kind="outlet" name="inputButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="inputText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ThreadDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThreadDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="threadUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="gfx-1K-KaS"/>
-    </inferredMetricsTieBreakers>
 </document>

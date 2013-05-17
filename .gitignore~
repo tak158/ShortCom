@@ -1,5 +1,9 @@
 ShortCom.xcworkspace/
 ShortCom.xcodeproj
+<<<<<<< HEAD
+=======
+ShortCom.xcodeproj/project.xcworkspace/xcuserdata/uchikawa_takao.xcuserdatad/UserInterfaceState.xcuserstate
+>>>>>>> board_function
 xcuserdata/
 build/
 *.DS_Store
