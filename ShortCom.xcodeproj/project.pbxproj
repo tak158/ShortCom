@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0D03429D1749C77500463718 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D03429C1749C77500463718 /* Social.framework */; };
 		0D0342A01749D56700463718 /* PostModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D03429F1749D56700463718 /* PostModalViewController.m */; };
-		0D0342B1174A19E200463718 /* CommentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0342B0174A19E200463718 /* CommentViewCell.m */; };
 		0D9DB5471745ABA200998DDC /* ThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */; };
 		0D9DB54A1745C03F00998DDC /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5491745C03F00998DDC /* BoardViewController.m */; };
 		0D9DB54D1745D23D00998DDC /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB54C1745D23D00998DDC /* Comment.m */; };
@@ -31,8 +30,6 @@
 		0D03429C1749C77500463718 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0D03429E1749D56700463718 /* PostModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostModalViewController.h; sourceTree = "<group>"; };
 		0D03429F1749D56700463718 /* PostModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostModalViewController.m; sourceTree = "<group>"; };
-		0D0342AF174A19E200463718 /* CommentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewCell.h; sourceTree = "<group>"; };
-		0D0342B0174A19E200463718 /* CommentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewCell.m; sourceTree = "<group>"; };
 		0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadDetailViewController.h; sourceTree = "<group>"; };
 		0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadDetailViewController.m; sourceTree = "<group>"; };
 		0D9DB5481745C03F00998DDC /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -121,8 +118,6 @@
 				0D9DB54C1745D23D00998DDC /* Comment.m */,
 				0D03429E1749D56700463718 /* PostModalViewController.h */,
 				0D03429F1749D56700463718 /* PostModalViewController.m */,
-				0D0342AF174A19E200463718 /* CommentViewCell.h */,
-				0D0342B0174A19E200463718 /* CommentViewCell.m */,
 			);
 			path = ShortCom;
 			sourceTree = "<group>";
@@ -215,7 +210,6 @@
 				0D9DB54A1745C03F00998DDC /* BoardViewController.m in Sources */,
 				0D9DB54D1745D23D00998DDC /* Comment.m in Sources */,
 				0D0342A01749D56700463718 /* PostModalViewController.m in Sources */,
-				0D0342B1174A19E200463718 /* CommentViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
