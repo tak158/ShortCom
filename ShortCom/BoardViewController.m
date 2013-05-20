@@ -57,8 +57,9 @@
 - (void)setupComment
 {
   _comments = [[NSMutableArray alloc] init];
-  [_comments addObject:[Comment commentWithNote:@"サンキューガッツ"]];
-  [_comments addObject:[Comment commentWithNote:@"知ってた"]];
+  _comments = [[Comment all] mutableCopy];
+//  [_comments addObject:[Comment commentWithNote:@"サンキューガッツ"]];
+//  [_comments addObject:[Comment commentWithNote:@"知ってた"]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

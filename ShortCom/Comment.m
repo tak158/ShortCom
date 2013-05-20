@@ -33,6 +33,7 @@
 
 + (NSArray *)all
 {
+
   NSData* data = [self getRequestToURL:[NSString stringWithFormat:@"%@/comments.json", SERVER_URL]];
   
   if (!data) {
@@ -108,6 +109,21 @@
   if (!responseData || (response.statusCode != 201 && response.statusCode != 204)) {
     NSLog(@"NSURLConnection error:%@ status:%d", error, response.statusCode);
   }
+}
+
++ (NSData *)getRequestToURL:(NSString *)url {
+  NSLog(@"--- getRequestToURL: %@", url);
+  
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                  [NSURL URLWithString:url]];
+  NSHTTPURLResponse *response = nil;
+  NSError *error = nil;
+  
+  NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+  if (!data || response.statusCode != 200) {
+    NSLog(@"NSURLConnection error:%@ status:%d", error, response.statusCode);
+  }
+  return data;
 }
 
 @end

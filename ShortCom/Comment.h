@@ -20,6 +20,7 @@
 + (NSArray *)all;
 + (NSArray *)getComments:(NSNumber *)threadId;
 + (NSData *)getRequestToURL:(NSString *)url;
+- (void)requestCommentToURL:(NSString *)url method:(NSString *)method;
 - (void)save;
 - (void)destroy;
 @end
