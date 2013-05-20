@@ -11,6 +11,7 @@
 #define SERVER_URL @"http://localhost:3000"
 
 @implementation Comment
+
 + (Comment *)commentWithNote:(NSString *)note
 {
   Comment* comment = [[Comment alloc] init];
@@ -61,12 +62,18 @@
 
 - (void)save
 {
-  
+  NSLog(@"--- save %@ %@ %@", _commentId, _note, _userId);
+  if(_commentId){
+    [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments/%@.json", SERVER_URL, _commentId] method:@"PUT"];
+  }else{
+    [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments.json", SERVER_URL] method:@"POST"];
+  }
 }
 
 - (void)destroy
 {
-  ;
+  NSLog(@"--- destroy %@ %@ %@ %@", _commentId, _userId, _threadId, _note);
+  [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments/%@.json", SERVER_URL, _commentId] method:@"DELETE"];
 }
 
 - (NSData *)getRequestToURL:(NSString*)url
@@ -80,6 +87,27 @@
     NSLog(@"NSURLConnection error:%@ status:%d", error, response.statusCode);
   }
   return data;
+}
+
+- (void)requestCommentToURL:(NSString *)url method:(NSString *)method {
+  NSError* error = nil;
+  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"comment": @{@"note": _note}} options:0 error:&error];
+  if(!requestData){
+    NSLog(@"NSJSONSerialization error:%@ ", error);
+    return;
+  }
+  
+  NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+  
+  [request setHTTPMethod:method];
+  [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+  [request setHTTPBody:requestData];
+  
+  NSHTTPURLResponse *response = nil;
+  NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+  if (!responseData || (response.statusCode != 201 && response.statusCode != 204)) {
+    NSLog(@"NSURLConnection error:%@ status:%d", error, response.statusCode);
+  }
 }
 
 @end
