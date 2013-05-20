@@ -119,9 +119,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-P1-oTn">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="314" id="mSm-jg-afU"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="BoardCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardCell" textLabel="1G7-Ya-OHD" style="IBUITableViewCellStyleDefault" id="4xz-rE-ZDa">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -146,33 +143,24 @@
                                     <outlet property="delegate" destination="lYb-Oj-Cus" id="vR0-3S-Dgr"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1E-4d-BHy">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="書き込み">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pushedButton:" destination="lYb-Oj-Cus" eventType="touchUpInside" id="PHL-Qu-lhA"/>
-                                    <segue destination="rAD-R5-ndT" kind="modal" id="12e-R0-Ws1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1yl-P1-oTn" firstAttribute="trailing" secondItem="Cw5-pn-r2y" secondAttribute="trailing" type="default" id="Kv5-Wj-ufR"/>
                             <constraint firstItem="1yl-P1-oTn" firstAttribute="bottom" secondItem="Cw5-pn-r2y" secondAttribute="bottom" type="default" id="NiU-aY-DKD"/>
                             <constraint firstItem="1yl-P1-oTn" firstAttribute="leading" secondItem="Cw5-pn-r2y" secondAttribute="leading" type="default" id="Vv8-PC-Brk"/>
-                            <constraint firstItem="D1E-4d-BHy" firstAttribute="top" secondItem="Cw5-pn-r2y" secondAttribute="top" constant="14" id="YL2-q1-cIH"/>
-                            <constraint firstItem="D1E-4d-BHy" firstAttribute="centerX" secondItem="1yl-P1-oTn" secondAttribute="centerX" type="default" id="dSS-H7-i9c"/>
+                            <constraint firstItem="1yl-P1-oTn" firstAttribute="top" secondItem="Cw5-pn-r2y" secondAttribute="top" type="default" id="bq4-oj-cBZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="掲示板" id="OIl-AB-gJS"/>
+                    <navigationItem key="navigationItem" title="掲示板" id="OIl-AB-gJS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="fEY-S6-tVH">
+                            <connections>
+                                <segue destination="rAD-R5-ndT" kind="modal" id="0lB-5T-0UH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="inputButton" destination="D1E-4d-BHy" id="7Pm-TD-eLA"/>
+                        <outlet property="postButton" destination="fEY-S6-tVH" id="loV-jd-lci"/>
                         <outlet property="tableView" destination="1yl-P1-oTn" id="Xmx-xz-Yv2"/>
                     </connections>
                 </viewController>
@@ -190,7 +178,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTT-3h-zO9">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="閉じる">
+                                <state key="normal" title="投稿する">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -201,7 +189,7 @@
                                     <segue destination="9Yo-2s-vZd" kind="unwind" unwindAction="commentUpdated:" id="bJB-MA-dcu"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-3r-GwJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-3r-GwJ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="245" id="WEx-4V-aeN"/>
                                 </constraints>
@@ -210,12 +198,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BTT-3h-zO9" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="173" id="7gs-a6-VFS"/>
-                            <constraint firstItem="BTT-3h-zO9" firstAttribute="centerX" secondItem="bKW-wo-6L6" secondAttribute="centerX" type="default" id="Gj0-mM-6e5"/>
-                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="113" id="WDO-U2-PRz"/>
-                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="leading" secondItem="bKW-wo-6L6" secondAttribute="leading" constant="29" id="kKZ-lV-jdg"/>
+                            <constraint firstItem="BTT-3h-zO9" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="81" id="QHE-Nz-9Dv"/>
+                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="centerX" secondItem="BTT-3h-zO9" secondAttribute="centerX" type="default" id="U7k-Uk-RIe"/>
+                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="centerX" secondItem="bKW-wo-6L6" secondAttribute="centerX" type="default" id="ZHu-7n-4pX"/>
+                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="37" id="u0k-ro-TLx"/>
                         </constraints>
                     </view>
                     <connections>
@@ -244,6 +232,41 @@
             <point key="canvasLocation" x="-229" y="-45"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="commentUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="pushedButton:"/>
+                <relationship kind="outlet" name="postButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PostModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeModalDialog:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="postText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ThreadDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThreadDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="threadUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
