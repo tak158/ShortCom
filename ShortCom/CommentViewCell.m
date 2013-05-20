@@ -9,6 +9,7 @@
 #import "CommentViewCell.h"
 
 @implementation CommentViewCell
+@synthesize firstLabel, secondLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

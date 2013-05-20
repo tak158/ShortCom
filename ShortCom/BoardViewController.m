@@ -67,7 +67,7 @@
 {
   UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
   Comment* comment = _comments[indexPath.row];
-  
+
   cell.textLabel.text = [NSString stringWithFormat:@"%@", comment.note];
   NSLog(@"%@", cell.textLabel.text);
   return cell;
