@@ -167,6 +167,7 @@
                                 </state>
                                 <connections>
                                     <action selector="pushedButton:" destination="lYb-Oj-Cus" eventType="touchUpInside" id="PHL-Qu-lhA"/>
+                                    <segue destination="rAD-R5-ndT" kind="modal" id="12e-R0-Ws1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -191,6 +192,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sme-Vf-5v4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="549" y="-45"/>
+        </scene>
+        <!--Post Modal View Controller-->
+        <scene sceneID="U7c-F7-ZYB">
+            <objects>
+                <viewController id="rAD-R5-ndT" customClass="PostModalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bKW-wo-6L6">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTT-3h-zO9">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="閉じる">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeModalDialog:" destination="rAD-R5-ndT" eventType="touchUpInside" id="lny-qo-1dO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BTT-3h-zO9" firstAttribute="centerX" secondItem="bKW-wo-6L6" secondAttribute="centerX" type="default" id="Gj0-mM-6e5"/>
+                            <constraint firstItem="BTT-3h-zO9" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="252" id="xGP-V8-KCx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="BTT-3h-zO9" id="oAe-gL-GKk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFk-bm-yj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="45U-R9-HtF">
@@ -220,6 +257,13 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PostModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeModalDialog:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="ThreadDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ThreadDetailViewController.h"/>
