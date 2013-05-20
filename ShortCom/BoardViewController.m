@@ -8,6 +8,7 @@
 
 #import "BoardViewController.h"
 #import <Social/Social.h>
+#import "PostModalViewController.h"
 
 @interface BoardViewController ()
 
@@ -45,18 +46,9 @@
 
 - (IBAction)pushedButton:(id)sender
 {
-  if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-    SLComposeViewController* composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    //個々で代入するデータを用意する必要があるかもしれない
-    
-    [self presentViewController:composeViewController animated:YES completion:nil];
-  }
+  PostModalViewController* modalView = [[PostModalViewController alloc] init];
+  [self presentViewController:modalView animated:YES completion:NULL];
   
-  
-  Comment* comment = [Comment commentWithNote:_inputText.text];
-  [_comments addObject:[Comment commentWithNote:_inputText.text]];
-  [comment save];
-  [_tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -79,6 +71,16 @@
   cell.textLabel.text = [NSString stringWithFormat:@"%@", comment.note];
   NSLog(@"%@", cell.textLabel.text);
   return cell;
+}
+
+- (IBAction)commentUpdated:(UIStoryboardSegue *)segue
+{
+  PostModalViewController* postModal = [segue sourceViewController];
+
+  Comment* comment = [Comment commentWithNote:postModal.postText.text];
+  [_comments addObject:comment];
+  [_tableView reloadData];
+  comment.save;
 }
 
 @end

@@ -11,11 +11,11 @@
 #import <Social/Social.h>
 
 @interface BoardViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITextField *inputText;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *inputButton;
 @property (strong, nonatomic) NSMutableArray* table;
 @property (strong, nonatomic) NSMutableArray* comments;
+@property (strong, nonatomic) NSIndexPath* commentIndexPath;
 
 - (IBAction)pushedButton:(id)sender;
 @end

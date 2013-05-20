@@ -146,16 +146,6 @@
                                     <outlet property="delegate" destination="lYb-Oj-Cus" id="vR0-3S-Dgr"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hew-xm-hjE">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="254" id="u0U-IC-NeP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lYb-Oj-Cus" id="N5N-N8-S5v"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1E-4d-BHy">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="書き込み">
@@ -176,16 +166,13 @@
                             <constraint firstItem="1yl-P1-oTn" firstAttribute="trailing" secondItem="Cw5-pn-r2y" secondAttribute="trailing" type="default" id="Kv5-Wj-ufR"/>
                             <constraint firstItem="1yl-P1-oTn" firstAttribute="bottom" secondItem="Cw5-pn-r2y" secondAttribute="bottom" type="default" id="NiU-aY-DKD"/>
                             <constraint firstItem="1yl-P1-oTn" firstAttribute="leading" secondItem="Cw5-pn-r2y" secondAttribute="leading" type="default" id="Vv8-PC-Brk"/>
-                            <constraint firstItem="D1E-4d-BHy" firstAttribute="centerX" secondItem="hew-xm-hjE" secondAttribute="centerX" type="default" id="cK3-KA-i3p"/>
-                            <constraint firstItem="D1E-4d-BHy" firstAttribute="top" secondItem="hew-xm-hjE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gDC-Gn-Wcx"/>
-                            <constraint firstItem="hew-xm-hjE" firstAttribute="leading" secondItem="Cw5-pn-r2y" secondAttribute="leading" constant="32" id="hlW-vx-Edl"/>
-                            <constraint firstItem="hew-xm-hjE" firstAttribute="top" secondItem="Cw5-pn-r2y" secondAttribute="top" constant="20" symbolic="YES" type="default" id="w2Q-cW-t7L"/>
+                            <constraint firstItem="D1E-4d-BHy" firstAttribute="top" secondItem="Cw5-pn-r2y" secondAttribute="top" constant="14" id="YL2-q1-cIH"/>
+                            <constraint firstItem="D1E-4d-BHy" firstAttribute="centerX" secondItem="1yl-P1-oTn" secondAttribute="centerX" type="default" id="dSS-H7-i9c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="掲示板" id="OIl-AB-gJS"/>
                     <connections>
                         <outlet property="inputButton" destination="D1E-4d-BHy" id="7Pm-TD-eLA"/>
-                        <outlet property="inputText" destination="hew-xm-hjE" id="crd-PL-POW"/>
                         <outlet property="tableView" destination="1yl-P1-oTn" id="Xmx-xz-Yv2"/>
                     </connections>
                 </viewController>
@@ -211,21 +198,33 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="closeModalDialog:" destination="rAD-R5-ndT" eventType="touchUpInside" id="lny-qo-1dO"/>
+                                    <segue destination="9Yo-2s-vZd" kind="unwind" unwindAction="commentUpdated:" id="bJB-MA-dcu"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-3r-GwJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="WEx-4V-aeN"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BTT-3h-zO9" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="173" id="7gs-a6-VFS"/>
                             <constraint firstItem="BTT-3h-zO9" firstAttribute="centerX" secondItem="bKW-wo-6L6" secondAttribute="centerX" type="default" id="Gj0-mM-6e5"/>
-                            <constraint firstItem="BTT-3h-zO9" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="252" id="xGP-V8-KCx"/>
+                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="top" secondItem="bKW-wo-6L6" secondAttribute="top" constant="113" id="WDO-U2-PRz"/>
+                            <constraint firstItem="xcg-3r-GwJ" firstAttribute="leading" secondItem="bKW-wo-6L6" secondAttribute="leading" constant="29" id="kKZ-lV-jdg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="BTT-3h-zO9" id="oAe-gL-GKk"/>
+                        <outlet property="postText" destination="xcg-3r-GwJ" id="BO4-W5-F1H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFk-bm-yj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9Yo-2s-vZd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="908" y="-45"/>
         </scene>
@@ -245,43 +244,6 @@
             <point key="canvasLocation" x="-229" y="-45"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BoardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pushedButton:"/>
-                <relationship kind="outlet" name="inputButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="inputText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PostModalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostModalViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeModalDialog:"/>
-                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ThreadDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThreadDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="threadUpdated:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -7,12 +7,14 @@
 //
 
 #import "PostModalViewController.h"
+#import "BoardViewController.h"
 
 @interface PostModalViewController ()
 
 @end
 
 @implementation PostModalViewController
+//@synthesize inputTextdelegate_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,7 +37,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)closeModalDialog:(id)sender {
+  // デリゲートでテキストデータを渡す
+//  [inputTextdelegate_ inputText:_postText.text];
   [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
 }
+
+
+
 
 @end
