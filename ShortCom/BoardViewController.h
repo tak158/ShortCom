@@ -17,8 +17,7 @@
 @property (strong, nonatomic) NSMutableArray* comments;
 @property (strong, nonatomic) NSIndexPath* commentIndexPath;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
-@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
-@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
+
 
 - (IBAction)pushedButton:(id)sender;
 @end

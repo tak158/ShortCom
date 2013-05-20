@@ -9,6 +9,7 @@
 #import "BoardViewController.h"
 #import <Social/Social.h>
 #import "PostModalViewController.h"
+#import "CommentViewCell.h"
 
 @interface BoardViewController ()
 
@@ -65,12 +66,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
+  CommentViewCell* cell = (CommentViewCell*)[tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
   Comment* comment = _comments[indexPath.row];
 
-  cell.textLabel.text = [NSString stringWithFormat:@"%@", comment.note];
+
+//  cell.textLabel.text = [NSString stringWithFormat:@"%@", comment.note];
+  UILabel* idLabel = (UILabel *)[cell viewWithTag:1];
+  idLabel.text = [NSString stringWithFormat:@"%@", comment.note];
   NSLog(@"%@", cell.textLabel.text);
   return cell;
+}
+
+// Cellが表示される直前に実行されるメソッド
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // For even
+  if (indexPath.row % 2 == 0) {
+    cell.backgroundColor = [UIColor whiteColor];
+  }
+  // For odd
+  else {
+    cell.backgroundColor = [UIColor colorWithHue:0.61
+                                      saturation:0.09
+                                      brightness:0.99
+                                           alpha:1.0];
+  }
 }
 
 - (IBAction)commentUpdated:(UIStoryboardSegue *)segue
@@ -82,5 +102,6 @@
   [_tableView reloadData];
   comment.save;
 }
+
 
 @end

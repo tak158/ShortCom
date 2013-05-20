@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentViewCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UILabel* firstLabel;
-@property (nonatomic, weak) IBOutlet UILabel* secondLabel;
+
 @end
