@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Comment.h"
+#import <Social/Social.h>
 
 @interface BoardViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *inputText;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D03429D1749C77500463718 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D03429C1749C77500463718 /* Social.framework */; };
 		0D9DB5471745ABA200998DDC /* ThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */; };
 		0D9DB54A1745C03F00998DDC /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5491745C03F00998DDC /* BoardViewController.m */; };
 		0D9DB54D1745D23D00998DDC /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB54C1745D23D00998DDC /* Comment.m */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D03429C1749C77500463718 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadDetailViewController.h; sourceTree = "<group>"; };
 		0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadDetailViewController.m; sourceTree = "<group>"; };
 		0D9DB5481745C03F00998DDC /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D03429D1749C77500463718 /* Social.framework in Frameworks */,
 				0DCA768C1744D67800FE6D6D /* UIKit.framework in Frameworks */,
 				0DCA768E1744D67800FE6D6D /* Foundation.framework in Frameworks */,
 				0DCA76901744D67800FE6D6D /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +71,7 @@
 		0DCA767F1744D67800FE6D6D = {
 			isa = PBXGroup;
 			children = (
+				0D03429C1749C77500463718 /* Social.framework */,
 				0DCA76911744D67800FE6D6D /* ShortCom */,
 				0DCA768A1744D67800FE6D6D /* Frameworks */,
 				0DCA76891744D67800FE6D6D /* Products */,

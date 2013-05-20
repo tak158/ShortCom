@@ -7,6 +7,7 @@
 //
 
 #import "BoardViewController.h"
+#import <Social/Social.h>
 
 @interface BoardViewController ()
 
@@ -44,6 +45,14 @@
 
 - (IBAction)pushedButton:(id)sender
 {
+  if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+    SLComposeViewController* composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    //個々で代入するデータを用意する必要があるかもしれない
+    
+    [self presentViewController:composeViewController animated:YES completion:nil];
+  }
+  
+  
   Comment* comment = [Comment commentWithNote:_inputText.text];
   [_comments addObject:[Comment commentWithNote:_inputText.text]];
   [comment save];
