@@ -44,7 +44,9 @@
 
 - (IBAction)pushedButton:(id)sender
 {
+  Comment* comment = [Comment commentWithNote:_inputText.text];
   [_comments addObject:[Comment commentWithNote:_inputText.text]];
+  [comment save];
   [_tableView reloadData];
 }
 
@@ -58,8 +60,6 @@
 {
   _comments = [[NSMutableArray alloc] init];
   _comments = [[Comment all] mutableCopy];
-//  [_comments addObject:[Comment commentWithNote:@"サンキューガッツ"]];
-//  [_comments addObject:[Comment commentWithNote:@"知ってた"]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
