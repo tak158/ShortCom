@@ -33,7 +33,7 @@
   [self setupComment];
   
   //タイマー絡みのプログラム
-  _timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+  _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
 }
 
@@ -47,12 +47,20 @@
 // 定期的に処理する関数
 - (void)timerInfo
 {
-  NSLog(@"timerが作動しているかどうかチェック");
+  CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+  cell.textLabel.text = @"aoeu";
+  [cell setNeedsLayout];
+  
+  /*
+  CommentViewCell* changeCell = (CommentViewCell* )[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:1]];
+  changeCell.textLabel.text = @"you";
+   */
+  /*
   NSArray* array = [[NSArray alloc] init];
   array = [Comment all];
   _comments = [[[array reverseObjectEnumerator] allObjects] mutableCopy];
   [_tableView reloadData];
-  
+  */
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -125,8 +133,6 @@
 
   Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:self.boardId userId:[NSNumber numberWithInt:1]];
   [_comments addObject:comment];
-//  int random = arc4random() % 5;
-//  _comments[random] = comment;
   [_tableView reloadData];
   comment.save;
 }
