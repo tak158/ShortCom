@@ -118,14 +118,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-P1-oTn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-P1-oTn">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="BoardCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardCell" rowHeight="70" id="4xz-rE-ZDa" customClass="CommentViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="70"/>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="BoardCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardCell" rowHeight="80" id="4xz-rE-ZDa" customClass="CommentViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" image="mac.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gp3-vD-kqg">
@@ -143,9 +143,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="Gp3-vD-kqg" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="12" id="773-gd-LdJ"/>
                                             <constraint firstItem="Gp3-vD-kqg" firstAttribute="leading" secondItem="4xz-rE-ZDa" secondAttribute="leading" constant="61" id="Bvc-Ca-oUl"/>
-                                            <constraint firstItem="ENu-6m-ro8" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="23" id="IgK-HB-3OG"/>
-                                            <constraint firstItem="Gp3-vD-kqg" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="7" id="g65-WV-K3P"/>
+                                            <constraint firstItem="ENu-6m-ro8" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="27" id="fj5-OC-sfN"/>
                                             <constraint firstAttribute="trailing" secondItem="ENu-6m-ro8" secondAttribute="trailing" constant="82" id="une-Q3-XXv"/>
                                         </constraints>
                                     </tableViewCell>

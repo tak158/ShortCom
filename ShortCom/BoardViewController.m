@@ -52,10 +52,12 @@
   
 }
 
+// 画面のCellは5個しか表示しない
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   NSLog(@"テーブル数の設定");
-  return [_comments count];
+  return 5;
+  
 }
 
 - (void)setupComment
@@ -69,8 +71,6 @@
   CommentViewCell* cell = (CommentViewCell*)[tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
   Comment* comment = _comments[indexPath.row];
 
-
-//  cell.textLabel.text = [NSString stringWithFormat:@"%@", comment.note];
   UILabel* idLabel = (UILabel *)[cell viewWithTag:1];
   idLabel.text = [NSString stringWithFormat:@"%@", comment.note];
   NSLog(@"%@", cell.textLabel.text);
@@ -98,7 +98,9 @@
   PostModalViewController* postModal = [segue sourceViewController];
 
   Comment* comment = [Comment commentWithNote:postModal.postText.text];
-  [_comments addObject:comment];
+//  [_comments addObject:comment];
+  int random = arc4random() % 5;
+  _comments[random] = comment;
   [_tableView reloadData];
   comment.save;
 }
