@@ -31,12 +31,20 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   [self setupComment];
+
+  NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+  
 }
 
 - (void)didReceiveMemoryWarning
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+- (void)timerInfo
+{
+  NSLog(@"timerが作動しているかどうかチェック");
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -62,8 +70,11 @@
 
 - (void)setupComment
 {
-  _comments = [[NSMutableArray alloc] init];
-  _comments = [[Comment all] mutableCopy];
+  NSArray* array = [[NSArray alloc] init];
+  array = [Comment all];
+  _comments = [[[array reverseObjectEnumerator] allObjects] mutableCopy];
+
+  return;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,7 +108,7 @@
 {
   PostModalViewController* postModal = [segue sourceViewController];
 
-  Comment* comment = [Comment commentWithNote:postModal.postText.text];
+  Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:[NSNumber numberWithInt:1] userId:[NSNumber numberWithInt:1]];
 //  [_comments addObject:comment];
   int random = arc4random() % 5;
   _comments[random] = comment;

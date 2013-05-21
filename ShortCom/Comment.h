@@ -13,9 +13,11 @@
 @property (strong, nonatomic) NSNumber* userId;
 @property (strong, nonatomic) NSNumber* threadId;
 @property (strong, nonatomic) NSString* note;
+@property (strong, nonatomic) NSString* createdAt;
 
 + (Comment *)commentWithNote:(NSString *)note;
-+ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId commentId:(NSNumber *)commentId;
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId;
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId createdAt:(NSString *)createdAt;
 
 + (NSArray *)all;
 + (NSArray *)getComments:(NSNumber *)threadId;

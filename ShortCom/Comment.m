@@ -20,13 +20,23 @@
   return comment;
 }
 
-+ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId commentId:(NSNumber *)commentId
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId
 {
   Comment* comment = [[Comment alloc] init];
   comment.note = note;
   comment.threadId = threadId;
   comment.userId = userId;
-  comment.commentId = commentId;
+  
+  return comment;
+}
+
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId createdAt:(NSString *)createdAt
+{
+  Comment* comment = [[Comment alloc] init];
+  comment.note = note;
+  comment.threadId = threadId;
+  comment.userId = userId;
+  comment.createdAt = createdAt;
   
   return comment;
 }
@@ -50,7 +60,7 @@
   NSMutableArray* comments = [NSMutableArray array];
   for(NSDictionary* dictionary in commentDictionaryArray)
   {
-    Comment* comment = [Comment commentWithNote:dictionary[@"note"] threadId:dictionary[@"board_id"] userId:dictionary[@"user_id"] commentId:dictionary[@"id"]];
+    Comment* comment = [Comment commentWithNote:dictionary[@"note"] threadId:dictionary[@"board_id"] userId:dictionary[@"user_id"] createdAt:dictionary[@"created_at"]];
     [comments addObject:comment];
   }
   NSLog(@"--- all %@", comments);
@@ -64,8 +74,9 @@
 
 - (void)save
 {
-  NSLog(@"--- save %@ %@ %@", _commentId, _note, _userId);
+  NSLog(@"--- save %@ %@ _userId:%@ _threadId(boardid)%@", _commentId, _note, _userId, _threadId);
   if(_commentId){
+  
     [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments/%@.json", SERVER_URL, _commentId] method:@"PUT"];
   }else{
     [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments.json", SERVER_URL] method:@"POST"];
