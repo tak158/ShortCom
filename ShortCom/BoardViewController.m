@@ -48,19 +48,11 @@
 - (void)timerInfo
 {
   CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-  cell.textLabel.text = @"aoeu";
+  UILabel* label = (UILabel*)[cell viewWithTag:1];
+  label.text = @"you are not alone.";
+  cell.frame = CGRectMake(95, 0, cell.bounds.size.width, cell.bounds.size.height);
+  //  cell.textLabel.text = @"aoeu";
   [cell setNeedsLayout];
-  
-  /*
-  CommentViewCell* changeCell = (CommentViewCell* )[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathWithIndex:1]];
-  changeCell.textLabel.text = @"you";
-   */
-  /*
-  NSArray* array = [[NSArray alloc] init];
-  array = [Comment all];
-  _comments = [[[array reverseObjectEnumerator] allObjects] mutableCopy];
-  [_tableView reloadData];
-  */
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -84,14 +76,9 @@
   
 }
 
+// Commentの初期設定を行うメソッド
 - (void)setupComment
 {
-  /*
-  NSArray* array = [[NSArray alloc] init];
-  array = [Comment all];
-  _comments = [[[array reverseObjectEnumerator] allObjects] mutableCopy];
-   */
-
   _comments = [Comment getComments:self.boardId];
 
   return;
