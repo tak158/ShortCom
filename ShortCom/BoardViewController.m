@@ -33,7 +33,7 @@
   [self setupComment];
   
   //タイマー絡みのプログラム
-  _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
 }
 
@@ -50,7 +50,12 @@
   CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
   UILabel* label = (UILabel*)[cell viewWithTag:1];
   label.text = @"you are not alone.";
-  cell.frame = CGRectMake(95, 0, cell.bounds.size.width, cell.bounds.size.height);
+  // アニメーションを実装してみる
+  [UIView beginAnimations:nil context:NULL];
+  cell.frame = CGRectMake(self.view.frame.size.width, 0, cell.bounds.size.width, cell.bounds.size.height);
+  cell.frame = CGRectMake(0, 0, cell.bounds.size.width, cell.bounds.size.height);
+  [UIView commitAnimations];
+  // ここまでアニメーション
   //  cell.textLabel.text = @"aoeu";
   [cell setNeedsLayout];
 }
