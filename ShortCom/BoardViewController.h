@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
 @property (strong, nonatomic) NSNumber* boardId;
 @property (strong, nonatomic) Thread* thread;
+@property (strong, nonatomic) NSTimer* timer;
 
 
 - (IBAction)pushedButton:(id)sender;

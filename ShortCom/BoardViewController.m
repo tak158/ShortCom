@@ -32,11 +32,8 @@
 	// Do any additional setup after loading the view.
   [self setupComment];
   
-  // threadが取得できているか確認
-  NSLog(@"thread : %@", self.thread);
-
-  //タイマーは一旦使わないので一時停止とする
-//  NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+  //タイマー絡みのプログラム
+  _timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
 }
 
@@ -132,6 +129,13 @@
 //  _comments[random] = comment;
   [_tableView reloadData];
   comment.save;
+}
+
+// 別の画面に遷移する直前のメソッド
+- (void)viewWillDisappear:(BOOL)animated
+{
+  NSLog(@"move!");
+  [_timer invalidate];
 }
 
 
