@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Thread.h"
 #import "ThreadDetailViewController.h"
+#import "BoardViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -67,14 +68,21 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  ThreadDetailViewController* detailViewController = [segue destinationViewController];
+  _updateIndexPath = _tableView.indexPathForSelectedRow;
   if ([[segue identifier] isEqualToString:@"new"]) {
+    ThreadDetailViewController* detailViewController = [segue destinationViewController];
     detailViewController.thread = [Thread threadWithName:@"" threadId:0];
     _updateIndexPath = [NSIndexPath indexPathForRow:[_threads count] inSection:0];
   }else if([[segue identifier] isEqualToString:@"edit"]){
+    ThreadDetailViewController* detailViewController = [segue destinationViewController];
     _updateIndexPath = _tableView.indexPathForSelectedRow;
     [self.tableView deselectRowAtIndexPath:_tableView.indexPathForSelectedRow animated:YES];
     detailViewController.thread = _threads[_updateIndexPath.row];
+  }else if([[segue identifier] isEqualToString:@"board"]){
+    BoardViewController* boardViewController = [segue destinationViewController];
+    boardViewController.thread = _threads[_updateIndexPath.row];
+    boardViewController.boardId = boardViewController.thread.threadId;
+    int i = 0;
   }
 }
 

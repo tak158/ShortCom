@@ -104,7 +104,7 @@
 
 - (void)requestCommentToURL:(NSString *)url method:(NSString *)method {
   NSError* error = nil;
-  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"comment": @{@"note": _note}} options:0 error:&error];
+  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"comment": @{@"note": _note, @"user_id": _userId, @"board_id": _threadId}} options:0 error:&error];
   if(!requestData){
     NSLog(@"NSJSONSerialization error:%@ ", error);
     return;

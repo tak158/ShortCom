@@ -31,6 +31,9 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   [self setupComment];
+  
+  // threadが取得できているか確認
+  NSLog(@"thread : %@", self.thread);
 
   NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
@@ -42,9 +45,16 @@
   // Dispose of any resources that can be recreated.
 }
 
+
+// 定期的に処理する関数
 - (void)timerInfo
 {
   NSLog(@"timerが作動しているかどうかチェック");
+  NSArray* array = [[NSArray alloc] init];
+  array = [Comment all];
+  _comments = [[[array reverseObjectEnumerator] allObjects] mutableCopy];
+  [_tableView reloadData];
+  
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -108,10 +118,10 @@
 {
   PostModalViewController* postModal = [segue sourceViewController];
 
-  Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:[NSNumber numberWithInt:1] userId:[NSNumber numberWithInt:1]];
-//  [_comments addObject:comment];
-  int random = arc4random() % 5;
-  _comments[random] = comment;
+  Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:self.boardId userId:[NSNumber numberWithInt:1]];
+  [_comments addObject:comment];
+//  int random = arc4random() % 5;
+//  _comments[random] = comment;
   [_tableView reloadData];
   comment.save;
 }
