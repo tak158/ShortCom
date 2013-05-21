@@ -41,7 +41,6 @@
   return comment;
 }
 
-
 + (NSArray *)all
 {
 
@@ -67,9 +66,20 @@
   return comments;
 }
 
-+ (NSArray *)getComments:(NSNumber *)threadId
+// threadIdに沿ったCommentだけを取得するメソッド
++ (NSMutableArray *)getComments:(NSNumber *)threadId
 {
-  return [NSArray arrayWithContentsOfFile:@"you"];
+  NSMutableArray* array = [[self all] mutableCopy];
+  NSMutableArray* lastArray = [[NSMutableArray alloc] init];
+  
+  for (int i=0; i<array.count; i++) {
+    Comment* kariComment = array[i];
+    if (kariComment.threadId == threadId) {
+      [lastArray addObject:kariComment];
+    }
+  }
+  
+  return lastArray;
 }
 
 - (void)save

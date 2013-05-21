@@ -35,7 +35,8 @@
   // threadが取得できているか確認
   NSLog(@"thread : %@", self.thread);
 
-  NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+  //タイマーは一旦使わないので一時停止とする
+//  NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
 }
 
@@ -80,9 +81,13 @@
 
 - (void)setupComment
 {
+  /*
   NSArray* array = [[NSArray alloc] init];
   array = [Comment all];
   _comments = [[[array reverseObjectEnumerator] allObjects] mutableCopy];
+   */
+
+  _comments = [Comment getComments:self.boardId];
 
   return;
 }
@@ -90,10 +95,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   CommentViewCell* cell = (CommentViewCell*)[tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
-  Comment* comment = _comments[indexPath.row];
+  NSLog(@"indexPath.row is %d", indexPath.row);
+  if (indexPath.row < _comments.count) {
+    Comment* comment = _comments[indexPath.row];
+    UILabel* idLabel = (UILabel *)[cell viewWithTag:1];
+    idLabel.text = [NSString stringWithFormat:@"%@", comment.note];
+  }
 
-  UILabel* idLabel = (UILabel *)[cell viewWithTag:1];
-  idLabel.text = [NSString stringWithFormat:@"%@", comment.note];
   NSLog(@"%@", cell.textLabel.text);
   return cell;
 }

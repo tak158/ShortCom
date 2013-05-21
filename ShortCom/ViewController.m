@@ -82,7 +82,6 @@
     BoardViewController* boardViewController = [segue destinationViewController];
     boardViewController.thread = _threads[_updateIndexPath.row];
     boardViewController.boardId = boardViewController.thread.threadId;
-    int i = 0;
   }
 }
 

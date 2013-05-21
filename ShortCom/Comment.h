@@ -20,7 +20,7 @@
 + (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId createdAt:(NSString *)createdAt;
 
 + (NSArray *)all;
-+ (NSArray *)getComments:(NSNumber *)threadId;
++ (NSMutableArray *)getComments:(NSNumber *)threadId;
 + (NSData *)getRequestToURL:(NSString *)url;
 - (void)requestCommentToURL:(NSString *)url method:(NSString *)method;
 - (void)save;
