@@ -22,6 +22,8 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   NSLog(@"data is : %@", [Thread all]);
+  // 
+  
   [self setupThread];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
