@@ -70,9 +70,8 @@
 + (NSMutableArray *)getComments:(NSNumber *)threadId
 {
   NSArray* kariArray = [[[self all] reverseObjectEnumerator] allObjects];
-//  NSMutableArray* array = [[self all] reverseObjectEnumerator] mutableCopy];
   NSMutableArray* array = [kariArray mutableCopy];
-  NSMutableArray* lastArray = [[NSMutableArray alloc] init];
+  NSMutableArray* lastArray = [[NSMutableArray alloc] initWithObjects:@"snthd", @"snthd", @"snthd", @"snthd", @"snthd", nil];
   int inputCount = 0;
   
   for (int i=0; i<array.count; i++) {
@@ -83,6 +82,14 @@
       if (inputCount >= 5) {
         break;
       }
+    }
+  }
+  
+  for (int i=0; i<5; i++) {
+    if(lastArray[i]){
+      ;
+    }else{
+      lastArray[i] = nil;
     }
   }
   
