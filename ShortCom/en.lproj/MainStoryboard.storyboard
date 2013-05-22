@@ -41,13 +41,23 @@
                                     <outlet property="delegate" destination="2" id="Vdd-fX-4EB"/>
                                 </connections>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-RU-4nA">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="home" image="home.png" id="DMO-FZ-AZT"/>
+                                    <tabBarItem title="config" image="config.png" id="Boh-0q-C8P"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Nay-RU-4nA" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="B40-qd-fiG"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="JsU-oP-EZq"/>
+                            <constraint firstItem="Nay-RU-4nA" firstAttribute="top" secondItem="4MT-Vu-ceW" secondAttribute="bottom" type="default" id="LxI-oC-hFo"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="PQf-Ri-Q2j"/>
-                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="RiG-H9-NAb"/>
+                            <constraint firstItem="Nay-RU-4nA" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Xua-UJ-9zH"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="kBn-JH-6HW"/>
+                            <constraint firstItem="Nay-RU-4nA" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="m7c-cy-xxf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Thread一覧" id="Z9M-mb-pcp">
@@ -246,6 +256,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="config.png" width="32" height="32"/>
+        <image name="home.png" width="32" height="32"/>
         <image name="mac.png" width="126" height="127"/>
     </resources>
     <classes>
