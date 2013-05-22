@@ -71,13 +71,14 @@
 {
   NSArray* kariArray = [[[self all] reverseObjectEnumerator] allObjects];
   NSMutableArray* array = [kariArray mutableCopy];
-  NSMutableArray* lastArray = [[NSMutableArray alloc] initWithObjects:@"snthd", @"snthd", @"snthd", @"snthd", @"snthd", nil];
+  NSMutableArray* lastArray = [[NSMutableArray alloc] initWithObjects:[Comment commentWithNote:@"snthd"], [Comment commentWithNote:@"snthd"], [Comment commentWithNote:@"snthd"], [Comment commentWithNote:@"snthd"], [Comment commentWithNote:@"snthd"], nil];
   int inputCount = 0;
   
   for (int i=0; i<array.count; i++) {
     Comment* kariComment = array[i];
     if (kariComment.threadId == threadId) {
-      [lastArray addObject:kariComment];
+      lastArray[inputCount] = kariComment;
+//      [lastArray addObject:kariComment];
       inputCount++;
       if (inputCount >= 5) {
         break;

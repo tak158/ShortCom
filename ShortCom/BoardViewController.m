@@ -123,7 +123,7 @@
   if (indexPath.row < _comments.count) {
     Comment* comment = _comments[indexPath.row];
     UILabel* idLabel = (UILabel *)[cell viewWithTag:1];
-    if (comment.note != nil) {
+    if (![comment.note isEqual: @"snthd"]) {
       idLabel.text = [NSString stringWithFormat:@"%@", comment.note];
     }else{
       idLabel.text = [NSString stringWithFormat:@"kari"];
