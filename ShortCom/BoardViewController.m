@@ -158,6 +158,7 @@
   [_comments addObject:comment];
   comment.save;
   [_tableView reloadData];
+  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
 }
 
 // 別の画面に遷移する直前のメソッド
