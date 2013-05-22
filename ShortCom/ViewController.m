@@ -23,17 +23,8 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   NSLog(@"data is : %@", [Thread all]);
-  // ユーザ情報を生成する
-  /*
+  // ユーザ情報を取得する
   _userData = [NSUserDefaults standardUserDefaults];
-  NSMutableDictionary* defaults = [NSMutableDictionary dictionary];
-  [defaults setObject:@"uchikawa" forKey:@"USER_NAME"];
-  [_userData registerDefaults:defaults];
-  [_userData synchronize];
-  
-  NSString *kariString = [_userData stringForKey:@"USER_NAME"];
-  NSLog(@"userData is %@", kariString);
-   */
   
   [self setupThread];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -116,11 +107,9 @@
 - (IBAction)userUpdated:(UIStoryboardSegue *)segue
 {
   ConfigViewController* configViewController = [segue sourceViewController];
-  // 今のUserDataを取得する
-  NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-  NSString* userName = [userDefault stringForKey:@"USER_NAME"];
-  if (configViewController.userNameText.text != userName){
-    [userDefault setObject:configViewController.userNameText.text forKey:@"USER_NAME"];
+  if (configViewController.userNameText.text != [_userData stringForKey:@"USER_NAME"]){
+    [_userData setObject:configViewController.userNameText.text forKey:@"USER_NAME"];
+    [_userData synchronize];
   }
 }
 
