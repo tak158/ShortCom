@@ -11,6 +11,8 @@
 		0D0342A01749D56700463718 /* PostModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D03429F1749D56700463718 /* PostModalViewController.m */; };
 		0D0342B4174A21C200463718 /* CommentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0342B3174A21C200463718 /* CommentViewCell.m */; };
 		0D0342B6174A233500463718 /* mac.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D0342B5174A233500463718 /* mac.png */; };
+		0D2361B9174C5F8800B70A29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2361B8174C5F8800B70A29 /* QuartzCore.framework */; };
+		0D2361BB174C646F00B70A29 /* block.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0D2361BA174C646F00B70A29 /* block.jpeg */; };
 		0D9DB5471745ABA200998DDC /* ThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */; };
 		0D9DB54A1745C03F00998DDC /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5491745C03F00998DDC /* BoardViewController.m */; };
 		0D9DB54D1745D23D00998DDC /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB54C1745D23D00998DDC /* Comment.m */; };
@@ -35,6 +37,8 @@
 		0D0342B2174A21C200463718 /* CommentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewCell.h; sourceTree = "<group>"; };
 		0D0342B3174A21C200463718 /* CommentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewCell.m; sourceTree = "<group>"; };
 		0D0342B5174A233500463718 /* mac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mac.png; sourceTree = "<group>"; };
+		0D2361B8174C5F8800B70A29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0D2361BA174C646F00B70A29 /* block.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = block.jpeg; path = ../../../block.jpeg; sourceTree = "<group>"; };
 		0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadDetailViewController.h; sourceTree = "<group>"; };
 		0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadDetailViewController.m; sourceTree = "<group>"; };
 		0D9DB5481745C03F00998DDC /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D2361B9174C5F8800B70A29 /* QuartzCore.framework in Frameworks */,
 				0D03429D1749C77500463718 /* Social.framework in Frameworks */,
 				0DCA768C1744D67800FE6D6D /* UIKit.framework in Frameworks */,
 				0DCA768E1744D67800FE6D6D /* Foundation.framework in Frameworks */,
@@ -79,6 +84,7 @@
 		0DCA767F1744D67800FE6D6D = {
 			isa = PBXGroup;
 			children = (
+				0D2361B8174C5F8800B70A29 /* QuartzCore.framework */,
 				0D03429C1749C77500463718 /* Social.framework */,
 				0DCA76911744D67800FE6D6D /* ShortCom */,
 				0DCA768A1744D67800FE6D6D /* Frameworks */,
@@ -132,6 +138,7 @@
 		0DCA76921744D67800FE6D6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0D2361BA174C646F00B70A29 /* block.jpeg */,
 				0D0342B5174A233500463718 /* mac.png */,
 				0DCA76931744D67800FE6D6D /* ShortCom-Info.plist */,
 				0DCA76941744D67800FE6D6D /* InfoPlist.strings */,
@@ -201,6 +208,7 @@
 				0DCA76A21744D67800FE6D6D /* Default-568h@2x.png in Resources */,
 				0DCA76A51744D67800FE6D6D /* MainStoryboard.storyboard in Resources */,
 				0D0342B6174A233500463718 /* mac.png in Resources */,
+				0D2361BB174C646F00B70A29 /* block.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

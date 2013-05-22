@@ -10,6 +10,7 @@
 #import <Social/Social.h>
 #import "PostModalViewController.h"
 #import "CommentViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BoardViewController ()
 
@@ -31,6 +32,9 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   [self setupComment];
+  
+  // 背景画像の設定
+  _tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"block.jpeg"]];
   
   //タイマー絡みのプログラム
   _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
@@ -106,6 +110,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   CommentViewCell* cell = (CommentViewCell*)[tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
+  // cellの形の変更
+  CALayer* layer = [cell layer];
+  [layer setMasksToBounds:YES];
+  [layer setCornerRadius:50.0f];
+  [layer setBorderWidth:1.0f];
+  [layer setBorderColor:[[UIColor orangeColor] CGColor]];
+//  cell.layer.cornerRadius = cell.frame.size.width / 3.0;
+//  cell.clipsToBounds = YES;
+  
   NSLog(@"indexPath.row is %d", indexPath.row);
   if (indexPath.row < _comments.count) {
     Comment* comment = _comments[indexPath.row];
