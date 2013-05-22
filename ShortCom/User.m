@@ -8,7 +8,7 @@
 
 #import "User.h"
 
-#define SERVER_URL @"http//localhost:3000"
+#define SERVER_URL @"http://localhost:3000"
 
 @implementation User
 
@@ -39,13 +39,13 @@
   }
   
   NSError* error = nil;
-  NSArray* threadDictionaryArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-  if (!threadDictionaryArray) {
+  NSArray* userDictionaryArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+  if (!userDictionaryArray) {
     NSLog(@"NSJSONSerialization error:%@", error);
     return @[];
   }
   NSMutableArray* users = [NSMutableArray array];
-  for(NSDictionary* dictionary in threadDictionaryArray)
+  for(NSDictionary* dictionary in userDictionaryArray)
   {
     User* user = [User userWithName:dictionary[@"name"] userId:dictionary[@"id"]];
     [users addObject:user];
@@ -53,6 +53,20 @@
   NSLog(@"--- all %@", users);
   return users;
 }
+
+/*
++ (NSMutableArray *)allUserName
+{
+  NSArray* allUser = [User all];
+  NSMutableArray* allUserName = [[NSMutableArray alloc] init];
+  
+  for (int i=0; i<allUser.count; i++) {
+    NSArray* kariUser = allUser[i];
+    [allUserName addObject:kariUser.name];
+  }
+  return allUserName;
+}
+*/
 
 + (NSData *)getRequestToURL:(NSString *)url
 {

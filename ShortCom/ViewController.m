@@ -11,6 +11,7 @@
 #import "ThreadDetailViewController.h"
 #import "BoardViewController.h"
 #import "ConfigViewController.h"
+#import "User.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -104,6 +105,7 @@
   [_tableView reloadData];
 }
 
+// モーダルでユーザ登録し、モーダルを閉じた場合
 - (IBAction)userUpdated:(UIStoryboardSegue *)segue
 {
   ConfigViewController* configViewController = [segue sourceViewController];
@@ -111,6 +113,10 @@
     [_userData setObject:configViewController.userNameText.text forKey:@"USER_NAME"];
     [_userData synchronize];
   }
+  
+  // 登録時、サーバを見て、名前がなければDBに追加する
+  NSArray* userNames = [User all];
+  NSLog(@"%@", userNames);
 }
 
 @end
