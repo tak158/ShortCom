@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConfigViewController : UIViewController
+@interface ConfigViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *applyButton;
+@property (weak, nonatomic) IBOutlet UITextField *userNameText;
 
 @end

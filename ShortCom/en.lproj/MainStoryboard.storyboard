@@ -45,7 +45,7 @@
                                 <items>
                                     <barButtonItem image="config.png" id="bXV-bp-Z0h">
                                         <connections>
-                                            <segue destination="KQt-Q8-brK" kind="modal" id="7PX-PJ-mIr"/>
+                                            <segue destination="KQt-Q8-brK" kind="modal" identifier="userDataEdit" id="7PX-PJ-mIr"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -142,6 +142,7 @@
                                 </state>
                                 <connections>
                                     <action selector="closeConfigModal:" destination="KQt-Q8-brK" eventType="touchUpInside" id="N36-9e-Npf"/>
+                                    <segue destination="rDF-eg-ff1" kind="unwind" unwindAction="userUpdated:" id="yhr-WQ-ofN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="userName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-MX-yir">
@@ -161,6 +162,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KQt-Q8-brK" id="YlS-fD-zsk"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="userImage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUz-Op-JM1">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,9 +188,11 @@
                     </view>
                     <connections>
                         <outlet property="applyButton" destination="BlC-yG-19U" id="moG-p4-kA7"/>
+                        <outlet property="userNameText" destination="n3j-wP-JrS" id="1C6-oS-1E7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xV9-NT-wCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rDF-eg-ff1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="123" y="639"/>
         </scene>
@@ -329,6 +335,57 @@
         <image name="config.png" width="24" height="24"/>
         <image name="mac.png" width="126" height="127"/>
     </resources>
+    <classes>
+        <class className="BoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="commentUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="pushedButton:"/>
+                <relationship kind="outlet" name="postButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CommentViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentViewCell.h"/>
+        </class>
+        <class className="ConfigViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeConfigModal:"/>
+                <relationship kind="outlet" name="applyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userNameText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PostModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeModalDialog:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="postText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ThreadDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThreadDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="threadUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="userUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="configBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

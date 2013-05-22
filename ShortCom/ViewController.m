@@ -10,6 +10,7 @@
 #import "Thread.h"
 #import "ThreadDetailViewController.h"
 #import "BoardViewController.h"
+#import "ConfigViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -22,7 +23,17 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   NSLog(@"data is : %@", [Thread all]);
-  // 
+  // ユーザ情報を生成する
+  /*
+  _userData = [NSUserDefaults standardUserDefaults];
+  NSMutableDictionary* defaults = [NSMutableDictionary dictionary];
+  [defaults setObject:@"uchikawa" forKey:@"USER_NAME"];
+  [_userData registerDefaults:defaults];
+  [_userData synchronize];
+  
+  NSString *kariString = [_userData stringForKey:@"USER_NAME"];
+  NSLog(@"userData is %@", kariString);
+   */
   
   [self setupThread];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -100,6 +111,17 @@
   [_threads[_updateIndexPath.row] save];
   _threads = [[Thread all] mutableCopy];
   [_tableView reloadData];
+}
+
+- (IBAction)userUpdated:(UIStoryboardSegue *)segue
+{
+  ConfigViewController* configViewController = [segue sourceViewController];
+  // 今のUserDataを取得する
+  NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+  NSString* userName = [userDefault stringForKey:@"USER_NAME"];
+  if (configViewController.userNameText.text != userName){
+    [userDefault setObject:configViewController.userNameText.text forKey:@"USER_NAME"];
+  }
 }
 
 @end

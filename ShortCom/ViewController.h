@@ -13,4 +13,5 @@
 @property (strong, nonatomic) NSIndexPath* updateIndexPath;
 @property (weak, nonatomic) IBOutlet UIToolbar *configBar;
 @property (strong, nonatomic) NSMutableArray* threads;
+@property (strong, nonatomic) NSUserDefaults* userData;
 @end
