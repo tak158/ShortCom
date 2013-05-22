@@ -1,20 +1,18 @@
 //
-//  PostModalViewController.m
+//  ConfigViewController.m
 //  ShortCom
 //
-//  Created by uchikawa takao on 2013/05/20.
+//  Created by uchikawa takao on 2013/05/22.
 //  Copyright (c) 2013年 uchikawa takao. All rights reserved.
 //
 
-#import "PostModalViewController.h"
-#import "BoardViewController.h"
+#import "ConfigViewController.h"
 
-@interface PostModalViewController ()
+@interface ConfigViewController ()
 
 @end
 
-@implementation PostModalViewController
-//@synthesize inputTextdelegate_;
+@implementation ConfigViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,9 +25,8 @@
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
+    [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  [_postText becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,11 +34,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)closeModalDialog:(id)sender {
+- (IBAction)closeConfigModal:(id)sender {
   [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
 }
-
-
-
 
 @end

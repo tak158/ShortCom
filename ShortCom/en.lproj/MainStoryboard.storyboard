@@ -41,23 +41,25 @@
                                     <outlet property="delegate" destination="2" id="Vdd-fX-4EB"/>
                                 </connections>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-RU-4nA">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5z-PS-uEG">
                                 <items>
-                                    <tabBarItem title="home" image="home.png" id="DMO-FZ-AZT"/>
-                                    <tabBarItem title="config" image="config.png" id="Boh-0q-C8P"/>
+                                    <barButtonItem image="config.png" id="bXV-bp-Z0h">
+                                        <connections>
+                                            <segue destination="KQt-Q8-brK" kind="modal" id="7PX-PJ-mIr"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </tabBar>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nay-RU-4nA" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="B40-qd-fiG"/>
-                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="JsU-oP-EZq"/>
-                            <constraint firstItem="Nay-RU-4nA" firstAttribute="top" secondItem="4MT-Vu-ceW" secondAttribute="bottom" type="default" id="LxI-oC-hFo"/>
+                            <constraint firstItem="f5z-PS-uEG" firstAttribute="top" secondItem="4MT-Vu-ceW" secondAttribute="bottom" type="default" id="K1g-kl-dkb"/>
+                            <constraint firstItem="f5z-PS-uEG" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Kpo-qs-Qru"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="PQf-Ri-Q2j"/>
-                            <constraint firstItem="Nay-RU-4nA" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Xua-UJ-9zH"/>
+                            <constraint firstItem="4MT-Vu-ceW" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="bRk-pj-UHh"/>
+                            <constraint firstItem="f5z-PS-uEG" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="giV-O4-FGa"/>
+                            <constraint firstItem="f5z-PS-uEG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="k17-Qy-ILC"/>
                             <constraint firstItem="4MT-Vu-ceW" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="kBn-JH-6HW"/>
-                            <constraint firstItem="Nay-RU-4nA" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="m7c-cy-xxf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Thread一覧" id="Z9M-mb-pcp">
@@ -68,6 +70,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="configBar" destination="f5z-PS-uEG" id="LO9-q7-Pdd"/>
                         <outlet property="tableView" destination="4MT-Vu-ceW" id="vqw-nz-8uV"/>
                     </connections>
                 </viewController>
@@ -119,6 +122,73 @@
                 <exit id="N9N-ec-XWt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="128" y="-799"/>
+        </scene>
+        <!--Config View Controller-->
+        <scene sceneID="Rkb-yp-Ctq">
+            <objects>
+                <viewController id="KQt-Q8-brK" customClass="ConfigViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="52e-pr-huj">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlC-yG-19U">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="モーダル消去">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeConfigModal:" destination="KQt-Q8-brK" eventType="touchUpInside" id="N36-9e-Npf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="userName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-MX-yir">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mac.png" translatesAutoresizingMaskIntoConstraints="NO" id="sSr-R0-LHJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="bph-pm-Uxc"/>
+                                    <constraint firstAttribute="height" constant="128" id="mrI-Mv-Iuf"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3j-wP-JrS">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="exm-xg-NWF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="userImage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUz-Op-JM1">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fB-MX-yir" firstAttribute="top" secondItem="52e-pr-huj" secondAttribute="top" constant="25" id="3Vc-LY-AcZ"/>
+                            <constraint firstItem="n3j-wP-JrS" firstAttribute="top" secondItem="2fB-MX-yir" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7iC-0K-z8y"/>
+                            <constraint firstItem="sSr-R0-LHJ" firstAttribute="top" secondItem="QUz-Op-JM1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Loe-uO-LRS"/>
+                            <constraint firstAttribute="bottom" secondItem="BlC-yG-19U" secondAttribute="bottom" constant="61" id="Mbe-kl-NTv"/>
+                            <constraint firstItem="2fB-MX-yir" firstAttribute="leading" secondItem="52e-pr-huj" secondAttribute="leading" constant="24" id="QJA-bJ-PaU"/>
+                            <constraint firstItem="QUz-Op-JM1" firstAttribute="leading" secondItem="52e-pr-huj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YfZ-3P-jdL"/>
+                            <constraint firstItem="QUz-Op-JM1" firstAttribute="top" secondItem="52e-pr-huj" secondAttribute="top" constant="119" id="e7K-7k-RTn"/>
+                            <constraint firstItem="n3j-wP-JrS" firstAttribute="leading" secondItem="2fB-MX-yir" secondAttribute="leading" type="default" id="eE5-tX-RCx"/>
+                            <constraint firstItem="sSr-R0-LHJ" firstAttribute="leading" secondItem="52e-pr-huj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="etf-3h-OsO"/>
+                            <constraint firstItem="BlC-yG-19U" firstAttribute="centerX" secondItem="52e-pr-huj" secondAttribute="centerX" type="default" id="xRc-DL-AcB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="applyButton" destination="BlC-yG-19U" id="moG-p4-kA7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xV9-NT-wCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="123" y="639"/>
         </scene>
         <!--Board View Controller - 掲示板-->
         <scene sceneID="jPv-ij-P1h">
@@ -256,8 +326,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="config.png" width="32" height="32"/>
-        <image name="home.png" width="32" height="32"/>
+        <image name="config.png" width="24" height="24"/>
         <image name="mac.png" width="126" height="127"/>
     </resources>
     <classes>
@@ -272,6 +341,13 @@
         </class>
         <class className="CommentViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentViewCell.h"/>
+        </class>
+        <class className="ConfigViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeConfigModal:"/>
+                <relationship kind="outlet" name="applyButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -297,6 +373,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="threadUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="configBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

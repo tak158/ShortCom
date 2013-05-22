@@ -11,5 +11,6 @@
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSIndexPath* updateIndexPath;
+@property (weak, nonatomic) IBOutlet UIToolbar *configBar;
 @property (strong, nonatomic) NSMutableArray* threads;
 @end
