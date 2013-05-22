@@ -47,17 +47,31 @@
 // 定期的に処理する関数
 - (void)timerInfo
 {
-  CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-  UILabel* label = (UILabel*)[cell viewWithTag:1];
-  label.text = @"you are not alone.";
+  
+  // ThreadIdをもとにその掲示板の最新5件のCommentを取得する
+  NSMutableArray* recentComments = [Comment getComments:self.boardId];
+  NSLog(@"%@", recentComments); // debug
+  
+  // 各セル毎にそれぞれ更新する
+  for (int i=0; i<5; i++) {
+    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    UILabel* label = (UILabel*)[cell viewWithTag:1];
+    Comment* tmpComment = recentComments[i];  // 配列の添字を使いつつプロパティ参照ができないようなので仮のオブジェクトを用意しておく
+    label.text = tmpComment.note;
+  }
+  
+  
   // アニメーションを実装してみる
-  [UIView beginAnimations:nil context:NULL];
-  cell.frame = CGRectMake(self.view.frame.size.width, 0, cell.bounds.size.width, cell.bounds.size.height);
-  cell.frame = CGRectMake(0, 0, cell.bounds.size.width, cell.bounds.size.height);
-  [UIView commitAnimations];
-  // ここまでアニメーション
-  //  cell.textLabel.text = @"aoeu";
-  [cell setNeedsLayout];
+  for (int i=0; i<5; i++) {
+    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    [UIView beginAnimations:nil context:NULL];
+    cell.frame = CGRectMake(self.view.frame.size.width+i*90, cell.bounds.size.height*i, cell.bounds.size.width, cell.bounds.size.height);
+    cell.frame = CGRectMake(0, cell.bounds.size.height*i, cell.bounds.size.width, cell.bounds.size.height);
+    [UIView setAnimationDuration:0.2+i*0.4];
+    [UIView commitAnimations];
+    // ここまでアニメーション
+    [cell setNeedsLayout];
+  }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

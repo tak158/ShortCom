@@ -66,16 +66,23 @@
   return comments;
 }
 
-// threadIdに沿ったCommentだけを取得するメソッド
+// threadIdに沿ったCommentだけを取得するメソッド。ただし5件までしか取得しない
 + (NSMutableArray *)getComments:(NSNumber *)threadId
 {
-  NSMutableArray* array = [[self all] mutableCopy];
+  NSArray* kariArray = [[[self all] reverseObjectEnumerator] allObjects];
+//  NSMutableArray* array = [[self all] reverseObjectEnumerator] mutableCopy];
+  NSMutableArray* array = [kariArray mutableCopy];
   NSMutableArray* lastArray = [[NSMutableArray alloc] init];
+  int inputCount = 0;
   
   for (int i=0; i<array.count; i++) {
     Comment* kariComment = array[i];
     if (kariComment.threadId == threadId) {
       [lastArray addObject:kariComment];
+      inputCount++;
+      if (inputCount >= 5) {
+        break;
+      }
     }
   }
   
