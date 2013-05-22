@@ -152,8 +152,8 @@
 
   Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:self.boardId userId:[NSNumber numberWithInt:1]];
   [_comments addObject:comment];
-  [_tableView reloadData];
   comment.save;
+  [_tableView reloadData];
 }
 
 // 別の画面に遷移する直前のメソッド

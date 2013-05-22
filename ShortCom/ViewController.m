@@ -91,10 +91,13 @@
     ThreadDetailViewController* detailViewController = [segue sourceViewController];
     [_threads addObject:detailViewController.thread];
     [_tableView insertRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+    // 新規スレッドにidを設定する
   }else{
     [_tableView reloadRowsAtIndexPaths:@[_updateIndexPath] withRowAnimation:UITableViewRowAnimationNone];
   }
   [_threads[_updateIndexPath.row] save];
+  _threads = [[Thread all] mutableCopy];
+  [_tableView reloadData];
 }
 
 @end
