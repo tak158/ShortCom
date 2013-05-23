@@ -12,6 +12,7 @@
 #import "CommentViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "User.h"
+#import "Comment.h"
 
 @interface BoardViewController ()
 
@@ -55,7 +56,6 @@
 // 定期的に処理する関数
 - (void)timerInfo
 {
-  
   // ThreadIdをもとにその掲示板の最新5件のCommentを取得する
   NSMutableArray* recentComments = [Comment getComments:self.boardId];
   
@@ -69,7 +69,6 @@
     userLabel.text = [User getUserName:[tmpComment.userId intValue]];
   }
   
-  
   // アニメーションを実装してみる
   for (int i=0; i<5; i++) {
     CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -81,7 +80,15 @@
     // ここまでアニメーション
     [cell setNeedsLayout];
   }
+  
+  // _commentsに現段階の情報を入力しておく
+//  for (int i=0; i<5; i++) {
+//    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+//    Comment* cellComment = [Comment commentWithNote:cell. threadId:<#(NSNumber *)#> userId:<#(NSNumber *)#> createdAt:<#(NSString *)#>];
+//  }
 }
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -170,6 +177,5 @@
   NSLog(@"move!");
   [_timer invalidate];
 }
-
 
 @end

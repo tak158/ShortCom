@@ -78,7 +78,6 @@
     Comment* kariComment = array[i];
     if (kariComment.threadId == threadId) {
       lastArray[inputCount] = kariComment;
-//      [lastArray addObject:kariComment];
       inputCount++;
       if (inputCount >= 5) {
         break;

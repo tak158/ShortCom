@@ -26,4 +26,5 @@
 
 
 - (IBAction)pushedButton:(id)sender;
++ (Comment *)getCommentInfo:(NSInteger *)index;
 @end
