@@ -12,9 +12,13 @@
 @property (strong, nonatomic) NSNumber* userId;
 @property (strong, nonatomic) NSString* name;
 
++ (User *)userWithName:(NSString *)name;
++ (User *)userWithName:(NSString *)name userId:(NSNumber *)userId;
+
 + (NSArray *)all;
 - (void)save;
 - (void)destroy;
 
 + (NSData *)getRequestToURL:(NSString *)url;
++ (NSMutableArray *)allUserName;
 @end

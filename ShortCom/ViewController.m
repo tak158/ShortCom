@@ -115,8 +115,15 @@
   }
   
   // 登録時、サーバを見て、名前がなければDBに追加する
-  NSArray* userNames = [User all];
-  NSLog(@"%@", userNames);
+  NSMutableArray* userNames = [User allUserName];
+  // 名前がDBに存在していた場合
+  if ([userNames containsObject:[_userData stringForKey:@"USER_NAME"]]) {
+    ;
+  // 存在していない場合はDBに登録する
+  }else{
+    User* registUser = [User userWithName:[_userData stringForKey:@"USER_NAME"]];
+    [registUser save];
+  }
 }
 
 @end

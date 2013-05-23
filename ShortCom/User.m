@@ -54,19 +54,19 @@
   return users;
 }
 
-/*
+
 + (NSMutableArray *)allUserName
 {
   NSArray* allUser = [User all];
   NSMutableArray* allUserName = [[NSMutableArray alloc] init];
   
   for (int i=0; i<allUser.count; i++) {
-    NSArray* kariUser = allUser[i];
+    User* kariUser = allUser[i];
     [allUserName addObject:kariUser.name];
   }
   return allUserName;
 }
-*/
+
 
 + (NSData *)getRequestToURL:(NSString *)url
 {
@@ -87,7 +87,8 @@
 - (void)requestUserToURL:(NSString *)url method:(NSString *)method
 {
   NSError* error = nil;
-  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"user": @{@"name": _name, @"id" : _userId}} options:0 error:&error];
+//  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"user": @{@"name": _name, @"id" : _userId}} options:0 error:&error];
+  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"user": @{@"name": _name}} options:0 error:&error];
   
   if (!requestData) {
     NSLog(@"NSJSONNSerialization error:%@", error);
