@@ -167,7 +167,6 @@
 // 別の画面に遷移する直前のメソッド
 - (void)viewWillDisappear:(BOOL)animated
 {
-  NSLog(@"move!");
   [_timer invalidate];
 }
 

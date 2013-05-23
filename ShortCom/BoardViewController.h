@@ -26,4 +26,5 @@
 
 
 - (IBAction)pushedButton:(id)sender;
+- (void)viewWillDisappear:(BOOL)animated;
 @end
