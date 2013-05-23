@@ -86,7 +86,6 @@
 - (void)requestUserToURL:(NSString *)url method:(NSString *)method
 {
   NSError* error = nil;
-//  NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"user": @{@"name": _name, @"id" : _userId}} options:0 error:&error];
   NSData* requestData = [NSJSONSerialization dataWithJSONObject:@{@"user": @{@"name": _name}} options:0 error:&error];
   
   if (!requestData) {
@@ -123,9 +122,30 @@
 }
 
 // user名を指定してそのuser_idを返すメソッド
-- (int)getUserId:(NSString *)userName
++ (NSInteger)getUserId:(NSString *)userName
 {
+  NSData* userData = [User getRequestToURL:[NSString stringWithFormat:@"%@/users.json", SERVER_URL]];
+  
+  if (!userData) {
+    return 0;
+  }
+  
+  NSError* error = nil;
+  NSArray* userDictionaryArray = [NSJSONSerialization JSONObjectWithData:userData options:0 error:&error];
+  if (!userDictionaryArray) {
+    NSLog(@"NSJSONSerialization error:%@", error);
+    return 0;
+  }
+
+  for(NSDictionary* dictionary in userDictionaryArray)
+  {
+    if ([dictionary[@"name"] isEqualToString:userName]) {
+      NSLog(@"%@", dictionary[@"id"]);
+      return [dictionary[@"id"] intValue];
+    }
+  }
   return 1;
 }
+
 
 @end

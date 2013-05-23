@@ -21,5 +21,5 @@
 
 + (NSData *)getRequestToURL:(NSString *)url;
 + (NSMutableArray *)allUserName;
-- (int)getUserId:(NSString *)userName;
++ (NSInteger)getUserId:(NSString *)userName;
 @end

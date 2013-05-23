@@ -26,6 +26,7 @@
   NSLog(@"data is : %@", [Thread all]);
   // ユーザ情報を取得する
   _userData = [NSUserDefaults standardUserDefaults];
+  NSLog(@"%@", _userData);
   
   [self setupThread];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -109,22 +110,26 @@
 - (IBAction)userUpdated:(UIStoryboardSegue *)segue
 {
   ConfigViewController* configViewController = [segue sourceViewController];
+  // モーダルで入力したnameが現在のログイン情報ではなかった場合
   if (configViewController.userNameText.text != [_userData stringForKey:@"USER_NAME"]){
     [_userData setObject:configViewController.userNameText.text forKey:@"USER_NAME"];
     [_userData synchronize];
   }
   
-  // 登録時、サーバを見て、名前がなければDBに追加する
   NSMutableArray* userNames = [User allUserName];
   // 名前がDBに存在していた場合
   if ([userNames containsObject:[_userData stringForKey:@"USER_NAME"]]) {
-    ;
+    // 名前に対応するidを取得するしdefaultにセットする
+    NSInteger i = [User getUserId:[_userData stringForKey:@"USER_NAME"]];
+    [_userData setInteger:i forKey:@"USER_ID"];
+    
   // 存在していない場合はDBに登録する
   }else{
     User* registUser = [User userWithName:[_userData stringForKey:@"USER_NAME"]];
     [registUser save];
     //NSUserDefaltsにuser_idをセット
-    [_userData setInteger:[registUser.userId integerValue] forKey:@"USER_ID"];
+    [_userData setInteger:[User getUserId:registUser.name] forKey:@"USER_ID"];
+    [_userData synchronize];
   }
 }
 

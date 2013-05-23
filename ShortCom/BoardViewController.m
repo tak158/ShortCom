@@ -34,10 +34,14 @@
   [self setupComment];
   
   //タイマー絡みのプログラム
-  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+//  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
   // ユーザアカウントを取得
   _userData = [NSUserDefaults standardUserDefaults];
+  
+  // アカウント情報が正しいか確認
+  NSLog(@"name : %@", [_userData stringForKey:@"USER_NAME"]);
+  NSLog(@"id : %d", [_userData integerForKey:@"USER_ID"]);
 }
 
 - (void)didReceiveMemoryWarning
