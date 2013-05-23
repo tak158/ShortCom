@@ -41,6 +41,14 @@
   return comment;
 }
 
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId commentId:(NSNumber *)commentId
+{
+  Comment* comment = [Comment commentWithNote:note threadId:threadId userId:userId];
+  comment.commentId = commentId;
+  
+  return comment;
+}
+
 + (NSArray *)all
 {
 
@@ -78,7 +86,6 @@
     Comment* kariComment = array[i];
     if (kariComment.threadId == threadId) {
       lastArray[inputCount] = kariComment;
-//      [lastArray addObject:kariComment];
       inputCount++;
       if (inputCount >= 5) {
         break;

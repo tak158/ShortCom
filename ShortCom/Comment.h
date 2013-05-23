@@ -18,6 +18,7 @@
 + (Comment *)commentWithNote:(NSString *)note;
 + (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId;
 + (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId createdAt:(NSString *)createdAt;
++ (Comment *)commentWithNote:(NSString *)note threadId:(NSNumber *)threadId userId:(NSNumber *)userId commentId:(NSNumber *)commentId;
 
 + (NSArray *)all;
 + (NSMutableArray *)getComments:(NSNumber *)threadId;

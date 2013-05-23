@@ -230,14 +230,21 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6h-75-mKw">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="c6h-75-mKw" firstAttribute="baseline" secondItem="baa-Uu-TzE" secondAttribute="baseline" type="default" id="5i2-TL-htd"/>
                                             <constraint firstItem="Gp3-vD-kqg" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="9" id="BdV-Dy-a8K"/>
-                                            <constraint firstItem="ENu-6m-ro8" firstAttribute="bottom" secondItem="Gp3-vD-kqg" secondAttribute="bottom" type="default" id="Cc6-zB-gnl"/>
+                                            <constraint firstItem="c6h-75-mKw" firstAttribute="leading" secondItem="4xz-rE-ZDa" secondAttribute="leading" constant="37" id="DRN-Sk-kVN"/>
                                             <constraint firstItem="Gp3-vD-kqg" firstAttribute="leading" secondItem="4xz-rE-ZDa" secondAttribute="leading" constant="10" id="Eyk-uf-tLY"/>
                                             <constraint firstItem="baa-Uu-TzE" firstAttribute="trailing" secondItem="ENu-6m-ro8" secondAttribute="trailing" type="default" id="bbO-lh-PXT"/>
+                                            <constraint firstItem="c6h-75-mKw" firstAttribute="top" secondItem="Gp3-vD-kqg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="n34-Tj-Xpq"/>
                                             <constraint firstItem="baa-Uu-TzE" firstAttribute="top" secondItem="ENu-6m-ro8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nPD-7B-Puh"/>
                                             <constraint firstAttribute="trailing" secondItem="ENu-6m-ro8" secondAttribute="trailing" constant="82" id="une-Q3-XXv"/>
                                         </constraints>
@@ -359,6 +366,7 @@
         <class className="ConfigViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigViewController.h"/>
             <relationships>
+                <relationship kind="action" name="closeConfigModal:"/>
                 <relationship kind="outlet" name="applyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="userNameText" candidateClass="UITextField"/>
             </relationships>

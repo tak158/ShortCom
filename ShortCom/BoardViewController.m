@@ -56,7 +56,7 @@
 - (void)timerInfo
 {
   
-  // ThreadIdをもとにその掲示板の最新5件のCommentを取得する
+  // ThreadIdをもとにその掲示板の(サーバ内にある)最新5件のCommentを取得する
   NSMutableArray* recentComments = [Comment getComments:self.boardId];
   
   // 各セル毎にそれぞれ更新する
@@ -81,6 +81,17 @@
     // ここまでアニメーション
     [cell setNeedsLayout];
   }
+
+  /*
+  // ここで_commentsに現状のcell情報を格納する
+  for (int i=0; i<5; i++) {
+    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    UILabel* label = (UILabel*)[cell viewWithTag:1];
+    UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
+
+    Comment* kariComment = [Comment commentWithNote:label.text threadId:_boardId userId:[_userData integerForKey:@"USER_ID"] commentId:<#(NSNumber *)#>];
+  }
+   */
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
