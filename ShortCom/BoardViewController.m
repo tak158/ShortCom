@@ -157,7 +157,7 @@
 {
   PostModalViewController* postModal = [segue sourceViewController];
 
-  Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:self.boardId userId:[NSNumber numberWithInt:1]];
+  Comment* comment = [Comment commentWithNote:postModal.postText.text threadId:self.boardId userId:[NSNumber numberWithInt:[_userData integerForKey:@"USER_ID"]]];
   [_comments addObject:comment];
   comment.save;
   [_tableView reloadData];
