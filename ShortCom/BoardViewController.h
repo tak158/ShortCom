@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSNumber* boardId;
 @property (strong, nonatomic) Thread* thread;
 @property (strong, nonatomic) NSTimer* timer;
+@property (strong, nonatomic) NSUserDefaults* userData;
 
 
 - (IBAction)pushedButton:(id)sender;

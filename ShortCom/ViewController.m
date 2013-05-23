@@ -123,6 +123,8 @@
   }else{
     User* registUser = [User userWithName:[_userData stringForKey:@"USER_NAME"]];
     [registUser save];
+    //NSUserDefaltsにuser_idをセット
+    [_userData setInteger:[registUser.userId integerValue] forKey:@"USER_ID"];
   }
 }
 

@@ -67,7 +67,6 @@
   return allUserName;
 }
 
-
 + (NSData *)getRequestToURL:(NSString *)url
 {
   NSLog(@"--- getRequestToURL: %@", url);
@@ -122,4 +121,11 @@
   NSLog(@"--- destroy %@ %@", _userId, _name);
   [self requestUserToURL:[NSString stringWithFormat:@"%@/users/%@.json", SERVER_URL, _userId] method:@"DELETE"];
 }
+
+// user名を指定してそのuser_idを返すメソッド
+- (int)getUserId:(NSString *)userName
+{
+  return 1;
+}
+
 @end

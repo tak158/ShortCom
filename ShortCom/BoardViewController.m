@@ -33,13 +33,11 @@
 	// Do any additional setup after loading the view.
   [self setupComment];
   
-  // 背景画像の設定
-//  _tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"block.jpeg"]];
-//  _tableView.backgroundColor = [UIColor blackColor];
-  
   //タイマー絡みのプログラム
   _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
+  // ユーザアカウントを取得
+  _userData = [NSUserDefaults standardUserDefaults];
 }
 
 - (void)didReceiveMemoryWarning
