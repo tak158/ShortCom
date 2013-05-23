@@ -54,10 +54,26 @@
 
 // 定期的に処理する関数
 - (void)timerInfo
-{
-  
+{  
   // ThreadIdをもとにその掲示板の(サーバ内にある)最新5件のCommentを取得する
   NSMutableArray* recentComments = [Comment getComments:self.boardId];
+  
+  // 旧5件Commentのidを取得する
+  NSMutableArray* oldCommentId = [[NSMutableArray alloc] init];
+  for (int i=0; i<5; i++) {
+    Comment* kariComment = _comments[i];
+    [oldCommentId addObject:(NSNumber*)kariComment.commentId];
+  }
+  
+  // 最新5件のCommentが旧5件のものとかぶっているか比較する
+  for (int i=0; i<5; i++) {
+    Comment* kariRecentComment = recentComments[i];
+    if ([oldCommentId containsObject:(NSNumber*)kariRecentComment.commentId]) {
+      NSLog(@"かぶったよ〜");
+    }else{
+      NSLog(@"かぶらなかったよ〜");
+    }
+  }
   
   // 各セル毎にそれぞれ更新する
   for (int i=0; i<5; i++) {
