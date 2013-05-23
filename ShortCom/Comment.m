@@ -67,7 +67,7 @@
   NSMutableArray* comments = [NSMutableArray array];
   for(NSDictionary* dictionary in commentDictionaryArray)
   {
-    Comment* comment = [Comment commentWithNote:dictionary[@"note"] threadId:dictionary[@"board_id"] userId:dictionary[@"user_id"] createdAt:dictionary[@"created_at"]];
+    Comment* comment = [Comment commentWithNote:dictionary[@"note"] threadId:dictionary[@"board_id"] userId:dictionary[@"user_id"] commentId:dictionary[@"id"]];
     [comments addObject:comment];
   }
   NSLog(@"--- all %@", comments);

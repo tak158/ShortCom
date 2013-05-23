@@ -81,17 +81,16 @@
     // ここまでアニメーション
     [cell setNeedsLayout];
   }
-
-  /*
+  
   // ここで_commentsに現状のcell情報を格納する
   for (int i=0; i<5; i++) {
     CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
     UILabel* label = (UILabel*)[cell viewWithTag:1];
-    UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
 
-    Comment* kariComment = [Comment commentWithNote:label.text threadId:_boardId userId:[_userData integerForKey:@"USER_ID"] commentId:<#(NSNumber *)#>];
+    Comment* kariComment = [Comment commentWithNote:label.text threadId:_boardId userId:[NSNumber numberWithInteger:[_userData integerForKey:@"USER_ID"]] commentId:_comments[i]];
+    
+    _comments[i] = kariComment;
   }
-   */
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
