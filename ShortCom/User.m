@@ -144,7 +144,32 @@
       return [dictionary[@"id"] intValue];
     }
   }
-  return 1;
+  return 9999;
+}
+
++ (NSString *)getUserName:(NSInteger)userId
+{
+  NSData* userData = [User getRequestToURL:[NSString stringWithFormat:@"%@/users.json", SERVER_URL]];
+  
+  if (!userData) {
+    return 0;
+  }
+  
+  NSError* error = nil;
+  NSArray* userDictionaryArray = [NSJSONSerialization JSONObjectWithData:userData options:0 error:&error];
+  if (!userDictionaryArray) {
+    NSLog(@"NSJSONSerialization error:%@", error);
+    return 0;
+  }
+  
+  for(NSDictionary* dictionary in userDictionaryArray)
+  {
+    if ([dictionary[@"id"] intValue] == userId) {
+      NSLog(@"%@", dictionary[@"name"]);
+      return dictionary[@"name"];
+    }
+  }
+  return @"snthd";
 }
 
 

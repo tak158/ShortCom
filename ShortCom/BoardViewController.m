@@ -11,6 +11,7 @@
 #import "PostModalViewController.h"
 #import "CommentViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "User.h"
 
 @interface BoardViewController ()
 
@@ -34,7 +35,7 @@
   [self setupComment];
   
   //タイマー絡みのプログラム
-//  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
   
   // ユーザアカウントを取得
   _userData = [NSUserDefaults standardUserDefaults];
@@ -57,14 +58,15 @@
   
   // ThreadIdをもとにその掲示板の最新5件のCommentを取得する
   NSMutableArray* recentComments = [Comment getComments:self.boardId];
-  NSLog(@"%@", recentComments); // debug
   
   // 各セル毎にそれぞれ更新する
   for (int i=0; i<5; i++) {
     CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
     UILabel* label = (UILabel*)[cell viewWithTag:1];
+    UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
     Comment* tmpComment = recentComments[i];  // 配列の添字を使いつつプロパティ参照ができないようなので仮のオブジェクトを用意しておく
     label.text = tmpComment.note;
+    userLabel.text = [User getUserName:[tmpComment.userId intValue]];
   }
   
   
@@ -97,9 +99,7 @@
 // 画面のCellは5個しか表示しない
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  NSLog(@"テーブル数の設定");
   return 5;
-  
 }
 
 // Commentの初期設定を行うメソッド
@@ -110,30 +110,30 @@
   return;
 }
 
+// 1つのCellの情報を更新する
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   CommentViewCell* cell = (CommentViewCell*)[tableView dequeueReusableCellWithIdentifier:@"BoardCell" forIndexPath:indexPath];
+  
   // cellの形の変更
   CALayer* layer = [cell layer];
   [layer setMasksToBounds:YES];
-  [layer setCornerRadius:50.0f];
-  [layer setBorderWidth:1.0f];
+  [layer setCornerRadius:20.0f];
+  [layer setBorderWidth:0.2f];
   [layer setBorderColor:[[UIColor orangeColor] CGColor]];
-//  cell.layer.cornerRadius = cell.frame.size.width / 3.0;
-//  cell.clipsToBounds = YES;
   
-  NSLog(@"indexPath.row is %d", indexPath.row);
   if (indexPath.row < _comments.count) {
     Comment* comment = _comments[indexPath.row];
     UILabel* idLabel = (UILabel *)[cell viewWithTag:1];
+    UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
     if (![comment.note isEqual: @"snthd"]) {
       idLabel.text = [NSString stringWithFormat:@"%@", comment.note];
+      userLabel.text = [NSString stringWithFormat:@"%@", [User getUserName:[comment.userId intValue]]];
     }else{
       idLabel.text = [NSString stringWithFormat:@"kari"];
     }
   }
 
-  NSLog(@"%@", cell.textLabel.text);
   return cell;
 }
 

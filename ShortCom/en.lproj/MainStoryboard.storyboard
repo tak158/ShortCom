@@ -214,13 +214,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" image="mac.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gp3-vD-kqg">
+                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" image="mac_mini.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gp3-vD-kqg">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="31" id="Adi-Sg-vvr"/>
-                                                        <constraint firstAttribute="height" constant="31" id="QAb-JX-Gg5"/>
+                                                        <constraint firstAttribute="height" constant="39" id="A9B-2P-zpk"/>
+                                                        <constraint firstAttribute="width" constant="40" id="eHh-OM-etq"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="未投稿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENu-6m-ro8">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baa-Uu-TzE">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,9 +234,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Gp3-vD-kqg" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="24" id="99J-o9-gTK"/>
-                                            <constraint firstItem="ENu-6m-ro8" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="27" id="fj5-OC-sfN"/>
-                                            <constraint firstItem="Gp3-vD-kqg" firstAttribute="leading" secondItem="4xz-rE-ZDa" secondAttribute="leading" constant="89" id="iKr-AF-UsJ"/>
+                                            <constraint firstItem="Gp3-vD-kqg" firstAttribute="top" secondItem="4xz-rE-ZDa" secondAttribute="top" constant="9" id="BdV-Dy-a8K"/>
+                                            <constraint firstItem="ENu-6m-ro8" firstAttribute="bottom" secondItem="Gp3-vD-kqg" secondAttribute="bottom" type="default" id="Cc6-zB-gnl"/>
+                                            <constraint firstItem="Gp3-vD-kqg" firstAttribute="leading" secondItem="4xz-rE-ZDa" secondAttribute="leading" constant="10" id="Eyk-uf-tLY"/>
+                                            <constraint firstItem="baa-Uu-TzE" firstAttribute="trailing" secondItem="ENu-6m-ro8" secondAttribute="trailing" type="default" id="bbO-lh-PXT"/>
+                                            <constraint firstItem="baa-Uu-TzE" firstAttribute="top" secondItem="ENu-6m-ro8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nPD-7B-Puh"/>
                                             <constraint firstAttribute="trailing" secondItem="ENu-6m-ro8" secondAttribute="trailing" constant="82" id="une-Q3-XXv"/>
                                         </constraints>
                                     </tableViewCell>
@@ -260,7 +267,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="postButton" destination="fEY-S6-tVH" id="loV-jd-lci"/>
-                        <outlet property="tableView" destination="1yl-P1-oTn" id="Xmx-xz-Yv2"/>
+                        <outlet property="tableView" destination="1yl-P1-oTn" id="Eg4-Y3-dyD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sme-Vf-5v4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,6 +341,7 @@
     <resources>
         <image name="config.png" width="24" height="24"/>
         <image name="mac.png" width="126" height="127"/>
+        <image name="mac_mini.png" width="32" height="32"/>
     </resources>
     <classes>
         <class className="BoardViewController" superclassName="UIViewController">
@@ -351,7 +359,6 @@
         <class className="ConfigViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigViewController.h"/>
             <relationships>
-                <relationship kind="action" name="closeConfigModal:"/>
                 <relationship kind="outlet" name="applyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="userNameText" candidateClass="UITextField"/>
             </relationships>

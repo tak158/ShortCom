@@ -14,6 +14,7 @@
 
 @interface BoardViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) NSMutableArray* table;
 @property (strong, nonatomic) NSMutableArray* comments;
 @property (strong, nonatomic) NSIndexPath* commentIndexPath;
