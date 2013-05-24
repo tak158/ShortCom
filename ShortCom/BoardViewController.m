@@ -69,56 +69,81 @@
    CommentIdはすべて配列に(NSNumber *)型として格納すること！
    --------------------------------------------------------*/
   
-  // 旧5件Commentのidを取得する
+  // 旧5件Commentのidを取得するし、その最大値を保存する
   NSMutableArray* oldCommentIds = [[NSMutableArray alloc] init];
+  NSInteger maxCommentId = 0;
   for (int i=0; i<5; i++) {
     Comment* tmpComment = _comments[i];
-    [oldCommentIds addObject:tmpComment.commentId];
-  }
-  
-  // 最新5件のCommentが旧5件のものとかぶっているか比較する
-  for (int i=0; i<5; i++) {
-    NSNumber* tmpRecentCommentId = recentCommentIds[i];
-    if ([oldCommentIds containsObject:tmpRecentCommentId]) {
-      NSLog(@"かぶったよ〜");
-    }else{
-      NSLog(@"かぶらなかったよ〜");
+//    [oldCommentIds addObject:tmpComment.commentId];
+    if ([tmpComment.commentId compare:[NSNumber numberWithInteger:maxCommentId]] == NSOrderedDescending) {
+      maxCommentId = [tmpComment.commentId intValue];
     }
   }
   
-  // 各セル毎にそれぞれ更新する
-  for (int i=0; i<5; i++) {
-    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-    UILabel* label = (UILabel*)[cell viewWithTag:1];
-    UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
-    Comment* tmpComment = recentComments[i];  // 配列の添字を使いつつプロパティ参照ができないようなので仮のオブジェクトを用意しておく
-    label.text = tmpComment.note;
-    userLabel.text = [User getUserName:[tmpComment.userId intValue]];
+  // 新しく取得したCommentのidが、旧コメントのidを超えているかを確認する
+  for (int i=4; i>=0; i--) {
+    Comment* tmpComment = recentComments[i];
+    if ([tmpComment.commentId compare:[NSNumber numberWithInteger:maxCommentId]] == NSOrderedDescending) {
+      NSInteger randPosition = arc4random_uniform(5);
+      NSLog(@"かぶらなかったよ〜");
+      CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:randPosition inSection:0]];
+      UILabel* label = (UILabel*)[cell viewWithTag:1];
+      UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
+      Comment* tmpComment = recentComments[i];  // 配列の添字を使いつつプロパティ参照ができないようなので仮のオブジェクトを用意しておく
+      label.text = tmpComment.note;
+      userLabel.text = [User getUserName:[tmpComment.userId intValue]];
+      
+      // またここで_comments[randPosition]を更新する
+      _comments[randPosition] = tmpComment;
+      
+      // アニメーションによる擬似的な挿入処理
+      [UIView beginAnimations:nil context:NULL];
+      cell.frame = CGRectMake(self.view.frame.size.width, cell.bounds.size.height*randPosition, cell.bounds.size.width, cell.bounds.size.height);
+      cell.frame = CGRectMake(0, cell.bounds.size.height*randPosition, cell.bounds.size.width, cell.bounds.size.height);
+      [UIView setAnimationDuration:0.2+i*0.4];
+      [UIView commitAnimations];
+      // ここまでアニメーション
+      
+//      [cell setNeedsLayout];
+    }
   }
   
-  
-  // アニメーションを実装してみる
+  /*
+  // 最新5件のCommentが旧5件のものとかぶっているか比較する
   for (int i=0; i<5; i++) {
-    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-    [UIView beginAnimations:nil context:NULL];
-    cell.frame = CGRectMake(self.view.frame.size.width+i*90, cell.bounds.size.height*i, cell.bounds.size.width, cell.bounds.size.height);
-    cell.frame = CGRectMake(0, cell.bounds.size.height*i, cell.bounds.size.width, cell.bounds.size.height);
-    [UIView setAnimationDuration:0.2+i*0.4];
-    [UIView commitAnimations];
-    // ここまでアニメーション
-    [cell setNeedsLayout];
-  }
-  
-  // ここで_commentsに現状のcell情報を格納する
-  for (int i=0; i<5; i++) {
-    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-    UILabel* label = (UILabel*)[cell viewWithTag:1];
-    Comment* tmpComment = _comments[i];
+    NSNumber* tmpRecentCommentId = recentCommentIds[i];
+    // 既存と同じセルがあればそのまま次の処理へ
+    if ([oldCommentIds containsObject:tmpRecentCommentId]) {
+      NSLog(@"かぶったよ〜");
+    // ない場合はランダムにセルをとり
+    // その場所を更新する
+    }else{
+      NSInteger randPosition = 4;
+      NSLog(@"かぶらなかったよ〜");
+      CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:randPosition inSection:0]];
+      UILabel* label = (UILabel*)[cell viewWithTag:1];
+      UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
+      Comment* tmpComment = recentComments[i];  // 配列の添字を使いつつプロパティ参照ができないようなので仮のオブジェクトを用意しておく
+      label.text = tmpComment.note;
+      userLabel.text = [User getUserName:[tmpComment.userId intValue]];
+      
+      // またここで_comments[randPosition]を更新する
+      _comments[randPosition] = tmpComment;
+      
+      
+      // アニメーションによる擬似的な挿入処理
+      [UIView beginAnimations:nil context:NULL];
+      cell.frame = CGRectMake(self.view.frame.size.width+i*90, cell.bounds.size.height*i, cell.bounds.size.width, cell.bounds.size.height);
+      cell.frame = CGRectMake(0, cell.bounds.size.height*i, cell.bounds.size.width, cell.bounds.size.height);
+      [UIView setAnimationDuration:0.2+i*0.4];
+      [UIView commitAnimations];
+      // ここまでアニメーション
 
-    Comment* kariComment = [Comment commentWithNote:label.text threadId:_boardId userId:[NSNumber numberWithInteger:[_userData integerForKey:@"USER_ID"]] commentId:tmpComment.commentId];
-    
-    _comments[i] = kariComment;
+      [cell setNeedsLayout];
+       
+    }
   }
+*/
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
