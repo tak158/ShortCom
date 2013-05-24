@@ -57,18 +57,29 @@
 {  
   // ThreadIdをもとにその掲示板の(サーバ内にある)最新5件のCommentを取得する
   NSMutableArray* recentComments = [Comment getComments:self.boardId];
+  // 新規CommentのcommentIdを取得する
+  NSMutableArray* recentCommentIds = [[NSMutableArray alloc] init];
+  // Commentidのみ取得する
+  for (int i=0; i<5; i++) {
+    Comment* tmpComment = recentComments[i];
+    [recentCommentIds addObject:tmpComment.commentId];
+  }
+  
+  /*--------------------------------------------------------
+   CommentIdはすべて配列に(NSNumber *)型として格納すること！
+   --------------------------------------------------------*/
   
   // 旧5件Commentのidを取得する
-  NSMutableArray* oldCommentId = [[NSMutableArray alloc] init];
+  NSMutableArray* oldCommentIds = [[NSMutableArray alloc] init];
   for (int i=0; i<5; i++) {
-    Comment* kariComment = _comments[i];
-    [oldCommentId addObject:(NSNumber*)kariComment.commentId];
+    Comment* tmpComment = _comments[i];
+    [oldCommentIds addObject:tmpComment.commentId];
   }
   
   // 最新5件のCommentが旧5件のものとかぶっているか比較する
   for (int i=0; i<5; i++) {
-    Comment* kariRecentComment = recentComments[i];
-    if ([oldCommentId containsObject:(NSNumber*)kariRecentComment.commentId]) {
+    NSNumber* tmpRecentCommentId = recentCommentIds[i];
+    if ([oldCommentIds containsObject:tmpRecentCommentId]) {
       NSLog(@"かぶったよ〜");
     }else{
       NSLog(@"かぶらなかったよ〜");
@@ -102,8 +113,9 @@
   for (int i=0; i<5; i++) {
     CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
     UILabel* label = (UILabel*)[cell viewWithTag:1];
+    Comment* tmpComment = _comments[i];
 
-    Comment* kariComment = [Comment commentWithNote:label.text threadId:_boardId userId:[NSNumber numberWithInteger:[_userData integerForKey:@"USER_ID"]] commentId:_comments[i]];
+    Comment* kariComment = [Comment commentWithNote:label.text threadId:_boardId userId:[NSNumber numberWithInteger:[_userData integerForKey:@"USER_ID"]] commentId:tmpComment.commentId];
     
     _comments[i] = kariComment;
   }
