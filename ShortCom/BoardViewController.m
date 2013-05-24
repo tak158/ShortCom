@@ -70,7 +70,7 @@
    --------------------------------------------------------*/
   
   // 旧5件Commentのidを取得するし、その最大値を保存する
-  NSMutableArray* oldCommentIds = [[NSMutableArray alloc] init];
+//  NSMutableArray* oldCommentIds = [[NSMutableArray alloc] init];
   NSInteger maxCommentId = 0;
   for (int i=0; i<5; i++) {
     Comment* tmpComment = _comments[i];

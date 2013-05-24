@@ -150,7 +150,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mac.png" translatesAutoresizingMaskIntoConstraints="NO" id="sSr-R0-LHJ">
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="mac.png" translatesAutoresizingMaskIntoConstraints="NO" id="sSr-R0-LHJ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="bph-pm-Uxc"/>
                                     <constraint firstAttribute="height" constant="128" id="mrI-Mv-Iuf"/>
@@ -171,23 +171,40 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="openPickerButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRj-F9-ANd">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="イメージピッカーを開く">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPushButton:" destination="KQt-Q8-brK" eventType="touchUpInside" id="zSP-La-oLG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DRj-F9-ANd" firstAttribute="top" secondItem="52e-pr-huj" secondAttribute="top" constant="74" id="0kH-Rg-Sk0"/>
                             <constraint firstItem="2fB-MX-yir" firstAttribute="top" secondItem="52e-pr-huj" secondAttribute="top" constant="25" id="3Vc-LY-AcZ"/>
                             <constraint firstItem="n3j-wP-JrS" firstAttribute="top" secondItem="2fB-MX-yir" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7iC-0K-z8y"/>
                             <constraint firstItem="sSr-R0-LHJ" firstAttribute="top" secondItem="QUz-Op-JM1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Loe-uO-LRS"/>
                             <constraint firstAttribute="bottom" secondItem="BlC-yG-19U" secondAttribute="bottom" constant="61" id="Mbe-kl-NTv"/>
                             <constraint firstItem="2fB-MX-yir" firstAttribute="leading" secondItem="52e-pr-huj" secondAttribute="leading" constant="24" id="QJA-bJ-PaU"/>
                             <constraint firstItem="QUz-Op-JM1" firstAttribute="leading" secondItem="52e-pr-huj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YfZ-3P-jdL"/>
-                            <constraint firstItem="QUz-Op-JM1" firstAttribute="top" secondItem="52e-pr-huj" secondAttribute="top" constant="119" id="e7K-7k-RTn"/>
                             <constraint firstItem="n3j-wP-JrS" firstAttribute="leading" secondItem="2fB-MX-yir" secondAttribute="leading" type="default" id="eE5-tX-RCx"/>
                             <constraint firstItem="sSr-R0-LHJ" firstAttribute="leading" secondItem="52e-pr-huj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="etf-3h-OsO"/>
+                            <constraint firstItem="DRj-F9-ANd" firstAttribute="leading" secondItem="n3j-wP-JrS" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="h48-Ye-ttt"/>
+                            <constraint firstItem="QUz-Op-JM1" firstAttribute="top" secondItem="52e-pr-huj" secondAttribute="top" constant="119" id="rUJ-p3-SUO"/>
                             <constraint firstItem="BlC-yG-19U" firstAttribute="centerX" secondItem="52e-pr-huj" secondAttribute="centerX" type="default" id="xRc-DL-AcB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="applyButton" destination="BlC-yG-19U" id="moG-p4-kA7"/>
+                        <outlet property="openPickerButton" destination="DRj-F9-ANd" id="Edp-Hp-uZW"/>
+                        <outlet property="userImage" destination="sSr-R0-LHJ" id="8eS-L5-yov"/>
                         <outlet property="userNameText" destination="n3j-wP-JrS" id="1C6-oS-1E7"/>
                     </connections>
                 </viewController>
@@ -350,6 +367,60 @@
         <image name="mac.png" width="126" height="127"/>
         <image name="mac_mini.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="BoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="commentUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="pushedButton:"/>
+                <relationship kind="outlet" name="postButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CommentViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentViewCell.h"/>
+        </class>
+        <class className="ConfigViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfigViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeConfigModal:"/>
+                <relationship kind="action" name="didPushButton:"/>
+                <relationship kind="outlet" name="applyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="openPickerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PostModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeModalDialog:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="postText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ThreadDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThreadDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="threadUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="userUpdated:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="configBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
