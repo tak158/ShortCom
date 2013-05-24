@@ -17,6 +17,7 @@
 		0D2361BF174C908600B70A29 /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D2361BE174C908600B70A29 /* config.png */; };
 		0D2361C2174C95EC00B70A29 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2361C1174C95EC00B70A29 /* ConfigViewController.m */; };
 		0D2361C5174CAFCE00B70A29 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2361C4174CAFCE00B70A29 /* User.m */; };
+		0D3E8C73174F581B006B7DD8 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E8C72174F581A006B7DD8 /* CommentDetailViewController.m */; };
 		0D64296E174DD9D300B30A5E /* mac_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D64296D174DD9D300B30A5E /* mac_mini.png */; };
 		0D9DB5471745ABA200998DDC /* ThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */; };
 		0D9DB54A1745C03F00998DDC /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9DB5491745C03F00998DDC /* BoardViewController.m */; };
@@ -50,6 +51,8 @@
 		0D2361C1174C95EC00B70A29 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		0D2361C3174CAFCE00B70A29 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		0D2361C4174CAFCE00B70A29 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		0D3E8C71174F581A006B7DD8 /* CommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailViewController.h; sourceTree = "<group>"; };
+		0D3E8C72174F581A006B7DD8 /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
 		0D64296D174DD9D300B30A5E /* mac_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mac_mini.png; sourceTree = "<group>"; };
 		0D9DB5451745ABA200998DDC /* ThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadDetailViewController.h; sourceTree = "<group>"; };
 		0D9DB5461745ABA200998DDC /* ThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadDetailViewController.m; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				0D2361C1174C95EC00B70A29 /* ConfigViewController.m */,
 				0D2361C3174CAFCE00B70A29 /* User.h */,
 				0D2361C4174CAFCE00B70A29 /* User.m */,
+				0D3E8C71174F581A006B7DD8 /* CommentDetailViewController.h */,
+				0D3E8C72174F581A006B7DD8 /* CommentDetailViewController.m */,
 			);
 			path = ShortCom;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				0D0342B4174A21C200463718 /* CommentViewCell.m in Sources */,
 				0D2361C2174C95EC00B70A29 /* ConfigViewController.m in Sources */,
 				0D2361C5174CAFCE00B70A29 /* User.m in Sources */,
+				0D3E8C73174F581B006B7DD8 /* CommentDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
