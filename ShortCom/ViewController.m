@@ -23,10 +23,8 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-  NSLog(@"data is : %@", [Thread all]);
   // ユーザ情報を取得する
   _userData = [NSUserDefaults standardUserDefaults];
-  NSLog(@"%@", _userData);
   
   [self setupThread];
   self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -36,7 +34,6 @@
 {
   _threads = [[NSMutableArray alloc] init];
   _threads = [[Thread all] mutableCopy];
-  NSLog(@"%@", _threads);
 }
 
 - (void)didReceiveMemoryWarning

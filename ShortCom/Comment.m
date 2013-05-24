@@ -70,7 +70,6 @@
     Comment* comment = [Comment commentWithNote:dictionary[@"note"] threadId:dictionary[@"board_id"] userId:dictionary[@"user_id"] commentId:dictionary[@"id"]];
     [comments addObject:comment];
   }
-  NSLog(@"--- all %@", comments);
   return comments;
 }
 
@@ -106,7 +105,6 @@
 
 - (void)save
 {
-  NSLog(@"--- save %@ %@ _userId:%@ _threadId(boardid)%@", _commentId, _note, _userId, _threadId);
   if(_commentId){
   
     [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments/%@.json", SERVER_URL, _commentId] method:@"PUT"];
@@ -117,7 +115,6 @@
 
 - (void)destroy
 {
-  NSLog(@"--- destroy %@ %@ %@ %@", _commentId, _userId, _threadId, _note);
   [self requestCommentToURL:[NSString stringWithFormat:@"%@/comments/%@.json", SERVER_URL, _commentId] method:@"DELETE"];
 }
 

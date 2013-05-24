@@ -70,7 +70,6 @@
    --------------------------------------------------------*/
   
   // 旧5件Commentのidを取得するし、その最大値を保存する
-  NSMutableArray* oldCommentIds = [[NSMutableArray alloc] init];
   NSInteger maxCommentId = 0;
   for (int i=0; i<5; i++) {
     Comment* tmpComment = _comments[i];
@@ -85,7 +84,6 @@
     Comment* tmpComment = recentComments[i];
     if ([tmpComment.commentId compare:[NSNumber numberWithInteger:maxCommentId]] == NSOrderedDescending) {
       NSInteger randPosition = arc4random_uniform(5);
-      NSLog(@"かぶらなかったよ〜");
       CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:randPosition inSection:0]];
       UILabel* label = (UILabel*)[cell viewWithTag:1];
       UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
