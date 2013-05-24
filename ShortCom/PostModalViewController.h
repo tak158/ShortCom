@@ -14,5 +14,5 @@
 @interface PostModalViewController : UIViewController 
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UITextField *postText;
-//@property (weak, nonatomic) id<InputTextDelegate> inputTextdelegate_;
+
 @end

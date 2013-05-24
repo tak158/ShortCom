@@ -28,6 +28,11 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   _userNameText.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"USER_NAME"];
+  
+  _pickerController = [[UIImagePickerController alloc] init];
+  _pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+  _pickerController.delegate = self;
+  [self presentViewController:_pickerController animated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,5 +48,16 @@
 {
   [textField resignFirstResponder];
   return YES;
+}
+- (IBAction)didPushButton:(id)sender {
+  NSLog(@"oreore");
+  [self presentViewController:_pickerController animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+  NSLog(@"ここ通ってますか？");
+  [self dismissViewControllerAnimated:YES completion:NULL];
+  _userImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];  
 }
 @end

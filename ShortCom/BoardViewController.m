@@ -73,7 +73,6 @@
   NSInteger maxCommentId = 0;
   for (int i=0; i<5; i++) {
     Comment* tmpComment = _comments[i];
-//    [oldCommentIds addObject:tmpComment.commentId];
     if ([tmpComment.commentId compare:[NSNumber numberWithInteger:maxCommentId]] == NSOrderedDescending) {
       maxCommentId = [tmpComment.commentId intValue];
     }
