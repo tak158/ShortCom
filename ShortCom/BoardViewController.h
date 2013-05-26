@@ -11,6 +11,7 @@
 #import <Social/Social.h>
 #import "CommentViewCell.h"
 #import "Thread.h"
+#import "CommentDetailViewController.h"
 
 @interface BoardViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

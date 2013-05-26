@@ -12,6 +12,7 @@
 #import "CommentViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "User.h"
+#import "CommentDetailViewController.h"
 
 @interface BoardViewController ()
 
@@ -213,6 +214,21 @@
   }
 }
 
+// 移行前に実行されるメソッド
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([segue.identifier isEqual: @"commentDetail"]) {
+    NSLog(@"you are");
+    CommentDetailViewController* commentDetailView = [segue destinationViewController];
+    CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:_tableView.indexPathForSelectedRow];
+    UILabel* label = (UILabel*)[cell viewWithTag:1];
+    UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
+    commentDetailView.name = userLabel.text;
+    commentDetailView.comment = label.text;
+  }
+}
+
+
 - (IBAction)commentUpdated:(UIStoryboardSegue *)segue
 {
   PostModalViewController* postModal = [segue sourceViewController];
@@ -221,6 +237,12 @@
   [_comments addObject:comment];
   comment.save;
   [_tableView reloadData];
+  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
+}
+
+- (IBAction)commentDetailMoved:(UIStoryboardSegue *)segue
+{
+//  CommentDetailViewController* commentDetailView = [segue sourceViewController];
   _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerInfo) userInfo:nil repeats:YES];
 }
 

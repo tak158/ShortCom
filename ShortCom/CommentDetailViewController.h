@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentDetailViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIButton *blockButton;
+@property (weak, nonatomic) IBOutlet UILabel *userNameText;
+@property (weak, nonatomic) IBOutlet UILabel *commentText;
+@property (strong, nonatomic) NSString* name;
+@property (strong, nonatomic) NSString* comment;
 @end

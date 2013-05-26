@@ -7,6 +7,7 @@
 //
 
 #import "CommentDetailViewController.h"
+#import "BoardViewController.h"
 
 @interface CommentDetailViewController ()
 
@@ -16,26 +17,31 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
+  
+  _userNameText.text = _name;
+  _commentText.text = _comment;
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 - (IBAction)didPushClose:(id)sender {
   [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (IBAction)blockButton:(id)sender {
 }
 
 @end
