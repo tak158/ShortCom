@@ -34,6 +34,7 @@
 		0DCA76A51744D67800FE6D6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCA76A31744D67800FE6D6D /* MainStoryboard.storyboard */; };
 		0DCA76A81744D67800FE6D6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA76A71744D67800FE6D6D /* ViewController.m */; };
 		0DCA76B01744D91700FE6D6D /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA76AF1744D91700FE6D6D /* Thread.m */; };
+		0DDA20A51752F0E50023EB6A /* NgUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA20A41752F0E50023EB6A /* NgUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		0DCA76A71744D67800FE6D6D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0DCA76AE1744D91700FE6D6D /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
 		0DCA76AF1744D91700FE6D6D /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
+		0DDA20A31752F0E50023EB6A /* NgUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgUser.h; sourceTree = "<group>"; };
+		0DDA20A41752F0E50023EB6A /* NgUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 				0D2361C4174CAFCE00B70A29 /* User.m */,
 				0D3E8C71174F581A006B7DD8 /* CommentDetailViewController.h */,
 				0D3E8C72174F581A006B7DD8 /* CommentDetailViewController.m */,
+				0DDA20A31752F0E50023EB6A /* NgUser.h */,
+				0DDA20A41752F0E50023EB6A /* NgUser.m */,
 			);
 			path = ShortCom;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				0D2361C2174C95EC00B70A29 /* ConfigViewController.m in Sources */,
 				0D2361C5174CAFCE00B70A29 /* User.m in Sources */,
 				0D3E8C73174F581B006B7DD8 /* CommentDetailViewController.m in Sources */,
+				0DDA20A51752F0E50023EB6A /* NgUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ngUser.h
+//  NgUser.h
 //  ShortCom
 //
 //  Created by uchikawa takao on 2013/05/27.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ngUser : NSObject
-@property (strong, nonatomic) NSNumber* originUser;
-@property (strong, nonatomic) NSNumber* targetUser;
+@interface NgUser : NSObject
+
 @end
