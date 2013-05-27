@@ -219,12 +219,15 @@
 {
   if ([segue.identifier isEqual: @"commentDetail"]) {
     NSLog(@"you are");
+    NSIndexPath* indexPath = _tableView.indexPathForSelectedRow;
+    Comment* selectedComment = _comments[indexPath.row];
     CommentDetailViewController* commentDetailView = [segue destinationViewController];
     CommentViewCell* cell = (CommentViewCell*)[_tableView cellForRowAtIndexPath:_tableView.indexPathForSelectedRow];
     UILabel* label = (UILabel*)[cell viewWithTag:1];
     UILabel* userLabel = (UILabel *)[cell viewWithTag:3];
     commentDetailView.name = userLabel.text;
     commentDetailView.comment = label.text;
+    commentDetailView.targetUserId = selectedComment.userId;
   }
 }
 

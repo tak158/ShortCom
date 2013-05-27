@@ -8,6 +8,7 @@
 
 #import "CommentDetailViewController.h"
 #import "BoardViewController.h"
+#import "NgUser.h"
 
 @interface CommentDetailViewController ()
 
@@ -31,6 +32,7 @@
   
   _userNameText.text = _name;
   _commentText.text = _comment;
+  NSLog(@"%@", _targetUserId);
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,7 +43,16 @@
 - (IBAction)didPushClose:(id)sender {
   [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+// ブロックButtonを押したらrailsにngUserを登録する
 - (IBAction)blockButton:(id)sender {
+  NSUserDefaults* originUser = [NSUserDefaults standardUserDefaults];
+  NSInteger originId = [originUser integerForKey:@"USER_ID"];
+  NSNumber* originNumberId = [NSNumber numberWithInteger:originId];
+  NgUser* ngUser = [NgUser ngUserWithOrigin:originNumberId targetUser:_targetUserId];
+  NSLog(@"oreno id : %d", [originUser integerForKey:@"USER_ID"]);
+  [ngUser save];
+  NSLog(@"NGどや");
 }
 
 @end

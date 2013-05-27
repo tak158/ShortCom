@@ -45,7 +45,6 @@
   for(NSDictionary* dictionary in userDictionaryArray)
   {
     NgUser* ngUser = [NgUser ngUserWithOrigin:dictionary[@"user_id"] targetUser:dictionary[@"target_user"]];
-//    NgUser* ngUser = [NgUser userWithName:dictionary[@"name"] userId:dictionary[@"id"]];
     [ngUsers addObject:ngUser];
   }
   NSLog(@"--- all %@", ngUsers);
@@ -54,8 +53,8 @@
 
 - (void)save
 {
-  if (_originUser) {
-    [self requestNgUserToURL:[NSString stringWithFormat:@"%@/ng_users/%@.json", SERVER_URL, _originUser] method:@"PUT"];
+  if (_relationId) {
+    [self requestNgUserToURL:[NSString stringWithFormat:@"%@/ng_users/%@.json", SERVER_URL, _relationId] method:@"PUT"];
   }else{
     [self requestNgUserToURL:[NSString stringWithFormat:@"%@/ng_users.json", SERVER_URL] method:@"POST"];
   }
@@ -64,7 +63,7 @@
 - (void)destroy
 {
   NSLog(@"--- destroy %@ %@", _originUser, _targetUser);
-  [self requestNgUserToURL:[NSString stringWithFormat:@"%@/users/%@.json", SERVER_URL, _relationId] method:@"DELETE"];
+  [self requestNgUserToURL:[NSString stringWithFormat:@"%@/ng_users/%@.json", SERVER_URL, _relationId] method:@"DELETE"];
 }
 
 

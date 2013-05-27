@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *commentText;
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* comment;
+@property (strong, nonatomic) NSNumber* targetUserId;
 @end
