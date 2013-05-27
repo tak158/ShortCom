@@ -12,9 +12,6 @@
 		0D0342B4174A21C200463718 /* CommentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0342B3174A21C200463718 /* CommentViewCell.m */; };
 		0D0342B6174A233500463718 /* mac.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D0342B5174A233500463718 /* mac.png */; };
 		0D2361B9174C5F8800B70A29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2361B8174C5F8800B70A29 /* QuartzCore.framework */; };
-		0D2361BB174C646F00B70A29 /* block.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0D2361BA174C646F00B70A29 /* block.jpeg */; };
-		0D2361BD174C907900B70A29 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D2361BC174C907900B70A29 /* home.png */; };
-		0D2361BF174C908600B70A29 /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D2361BE174C908600B70A29 /* config.png */; };
 		0D2361C2174C95EC00B70A29 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2361C1174C95EC00B70A29 /* ConfigViewController.m */; };
 		0D2361C5174CAFCE00B70A29 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2361C4174CAFCE00B70A29 /* User.m */; };
 		0D3E8C73174F581B006B7DD8 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E8C72174F581A006B7DD8 /* CommentDetailViewController.m */; };
@@ -35,6 +32,9 @@
 		0DCA76A81744D67800FE6D6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA76A71744D67800FE6D6D /* ViewController.m */; };
 		0DCA76B01744D91700FE6D6D /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA76AF1744D91700FE6D6D /* Thread.m */; };
 		0DDA20A51752F0E50023EB6A /* NgUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDA20A41752F0E50023EB6A /* NgUser.m */; };
+		0DDA20A71752F67B0023EB6A /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DDA20A61752F67B0023EB6A /* config.png */; };
+		0DDA20A91752F6820023EB6A /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DDA20A81752F6820023EB6A /* home.png */; };
+		0DDA20AB1752F68D0023EB6A /* block.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0DDA20AA1752F68D0023EB6A /* block.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +45,6 @@
 		0D0342B3174A21C200463718 /* CommentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewCell.m; sourceTree = "<group>"; };
 		0D0342B5174A233500463718 /* mac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mac.png; sourceTree = "<group>"; };
 		0D2361B8174C5F8800B70A29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		0D2361BA174C646F00B70A29 /* block.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = block.jpeg; path = ../../../block.jpeg; sourceTree = "<group>"; };
-		0D2361BC174C907900B70A29 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../../../home.png; sourceTree = "<group>"; };
-		0D2361BE174C908600B70A29 /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config.png; path = ../../../config.png; sourceTree = "<group>"; };
 		0D2361C0174C95EC00B70A29 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
 		0D2361C1174C95EC00B70A29 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		0D2361C3174CAFCE00B70A29 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -81,6 +78,9 @@
 		0DCA76AF1744D91700FE6D6D /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
 		0DDA20A31752F0E50023EB6A /* NgUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgUser.h; sourceTree = "<group>"; };
 		0DDA20A41752F0E50023EB6A /* NgUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgUser.m; sourceTree = "<group>"; };
+		0DDA20A61752F67B0023EB6A /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
+		0DDA20A81752F6820023EB6A /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		0DDA20AA1752F68D0023EB6A /* block.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = block.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +164,9 @@
 		0DCA76921744D67800FE6D6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0D2361BE174C908600B70A29 /* config.png */,
-				0D2361BC174C907900B70A29 /* home.png */,
-				0D2361BA174C646F00B70A29 /* block.jpeg */,
+				0DDA20AA1752F68D0023EB6A /* block.jpeg */,
+				0DDA20A81752F6820023EB6A /* home.png */,
+				0DDA20A61752F67B0023EB6A /* config.png */,
 				0D0342B5174A233500463718 /* mac.png */,
 				0D64296D174DD9D300B30A5E /* mac_mini.png */,
 				0DCA76931744D67800FE6D6D /* ShortCom-Info.plist */,
@@ -237,10 +237,10 @@
 				0DCA76A21744D67800FE6D6D /* Default-568h@2x.png in Resources */,
 				0DCA76A51744D67800FE6D6D /* MainStoryboard.storyboard in Resources */,
 				0D0342B6174A233500463718 /* mac.png in Resources */,
-				0D2361BB174C646F00B70A29 /* block.jpeg in Resources */,
-				0D2361BD174C907900B70A29 /* home.png in Resources */,
-				0D2361BF174C908600B70A29 /* config.png in Resources */,
 				0D64296E174DD9D300B30A5E /* mac_mini.png in Resources */,
+				0DDA20A71752F67B0023EB6A /* config.png in Resources */,
+				0DDA20A91752F6820023EB6A /* home.png in Resources */,
+				0DDA20AB1752F68D0023EB6A /* block.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

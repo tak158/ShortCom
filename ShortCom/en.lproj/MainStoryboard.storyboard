@@ -442,7 +442,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="config.png" width="480" height="172"/>
+        <image name="config.png" width="24" height="24"/>
         <image name="mac.png" width="126" height="127"/>
         <image name="mac_mini.png" width="32" height="32"/>
     </resources>

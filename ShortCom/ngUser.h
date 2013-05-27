@@ -9,5 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface NgUser : NSObject
+@property (strong, nonatomic) NSNumber* originUser;
+@property (strong, nonatomic) NSNumber* targetUser;
+@property (strong, nonatomic) NSNumber* relationId;
 
+
++ (NgUser *)ngUserWithOrigin:(NSNumber *)originUser;
++ (NgUser *)ngUserWithOrigin:(NSNumber *)originUser targetUser:(NSNumber *)targetUser;
+
++ (NSArray *)all;
+- (void)save;
+- (void)destroy;
+
++ (NSData *)getRequestToURL:(NSString *)url;
+- (void)requestNgUserToURL:(NSString *)url method:(NSString *)method;
 @end
